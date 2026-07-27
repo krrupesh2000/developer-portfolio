@@ -43,7 +43,6 @@ function Hero() {
       id="home"
       className="mx-auto flex min-h-screen max-w-7xl flex-col-reverse items-center justify-center gap-12 px-6 py-20 md:flex-row"
     >
-      {/* Left */}
       <div className="flex-1 text-center md:text-left">
         <p className="mb-2 text-lg text-gray-500">Hi I'm</p>
 
@@ -64,7 +63,6 @@ function Hero() {
         </div>
       </div>
 
-      {/* Right */}
       <div className="flex flex-1 justify-center">
         <img
           src={profile.avatar_url}

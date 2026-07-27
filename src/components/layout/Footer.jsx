@@ -6,9 +6,12 @@ const footerLinks = [
 ];
 
 const socialLinks = [
-  { label: "GitHub", href: "#" },
-  { label: "LinkedIn", href: "#" },
-  { label: "Email", href: "mailto:your@email.com" },
+  { label: "GitHub", href: "https://github.com/krrupesh2000" },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/rupesh-kumar-196420155/",
+  },
+  { label: "Email", href: "mailto:krrupesh2000@gmail.com" },
 ];
 
 function Footer() {

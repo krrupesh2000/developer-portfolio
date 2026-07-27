@@ -1,0 +1,14 @@
+@import "./tokens.css";
+@import "./theme.css";
+@import "./typography.css";
+@import "./shadows.css";
+@import "./utilities.css";
+@import "./animations.css";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-background text-foreground;
+}

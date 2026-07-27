@@ -4,13 +4,13 @@ function Card({ children, className = "" }) {
       className={`
         rounded-2xl
         border
-        border-gray-200
-        bg-white
+        border-slate-800
+        bg-card
         p-6
         shadow-sm
         transition-all
         duration-300
-        hover:-translate-y-2 hover:shadow-xl
+        hover:-translate-y-2 hover:border-primary/50 hover:shadow-xl
         ${className}
       `}
     >

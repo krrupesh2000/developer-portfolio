@@ -48,12 +48,12 @@ function Projects() {
           <Card key={repo.id}>
             <h3 className="text-2xl font-bold">{repo.name}</h3>
 
-            <p className="mt-3 text-gray-600">
+            <p className="mt-3 text-muted-foreground">
               {repo.description ?? "No description provided."}
             </p>
 
             <div className="mt-6 flex items-center justify-between">
-              <span className="rounded-full bg-blue-100 px-3 py-1 text-sm text-blue-700">
+              <span className="rounded-full bg-primary/15 px-3 py-1 text-sm text-primary">
                 {repo.language || "Unknown"}
               </span>
 

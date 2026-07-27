@@ -8,7 +8,7 @@ function About() {
 
       <div className="flex flex-col items-center gap-12 md:flex-row">
         <div className="flex justify-center md:w-1/3">
-          <div className="h-72 w-72 rounded-2xl bg-gray-300 transition-transform duration-500 hover:scale-105">
+          <div className="h-72 w-72 rounded-2xl bg-card transition-transform duration-[400ms] hover:scale-[1.02]">
             <img
               src={Profile}
               alt="Profile"
@@ -20,7 +20,7 @@ function About() {
         <div className="md:w-2/3">
           <h3 className="text-2xl font-semibold">Full Stack MERN Developer</h3>
 
-          <p className="mt-4 leading-8 text-gray-600">
+          <p className="mt-4 leading-8 text-muted-foreground">
             I'm a passionate Full Stack MERN Developer who enjoys building
             responsive and scalable web applications. I love learning new
             technologies and continuously improving my development skills. My

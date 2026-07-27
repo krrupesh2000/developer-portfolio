@@ -21,9 +21,9 @@ function Contact() {
             id="name"
             type="text"
             placeholder="Enter your name"
-            className="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none transition focus:border-black
+            className="w-full rounded-lg border border-slate-800 bg-card px-4 py-3 text-foreground outline-none transition placeholder:text-muted-foreground focus:border-primary
 focus:ring-2
-focus:ring-gray-300"
+focus:ring-primary/30"
           />
         </div>
 
@@ -36,9 +36,9 @@ focus:ring-gray-300"
             id="email"
             type="email"
             placeholder="Enter your email"
-            className="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none transition focus:border-black
+            className="w-full rounded-lg border border-slate-800 bg-card px-4 py-3 text-foreground outline-none transition placeholder:text-muted-foreground focus:border-primary
 focus:ring-2
-focus:ring-gray-300"
+focus:ring-primary/30"
           />
         </div>
 
@@ -51,9 +51,9 @@ focus:ring-gray-300"
             id="subject"
             type="text"
             placeholder="Subject"
-            className="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none transition focus:border-black
+            className="w-full rounded-lg border border-slate-800 bg-card px-4 py-3 text-foreground outline-none transition placeholder:text-muted-foreground focus:border-primary
 focus:ring-2
-focus:ring-gray-300"
+focus:ring-primary/30"
           />
         </div>
 
@@ -66,9 +66,9 @@ focus:ring-gray-300"
             id="message"
             rows="6"
             placeholder="Write your message..."
-            className="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none transition focus:border-black
+            className="w-full rounded-lg border border-slate-800 bg-card px-4 py-3 text-foreground outline-none transition placeholder:text-muted-foreground focus:border-primary
 focus:ring-2
-focus:ring-gray-300"
+focus:ring-primary/30"
           />
         </div>
 

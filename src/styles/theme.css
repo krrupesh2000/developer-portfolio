@@ -1,0 +1,27 @@
+@theme {
+  /* Background */
+  --color-background: var(--slate-950);
+
+  /* Surfaces */
+  --color-card: var(--slate-900);
+  --color-card-hover: var(--slate-800);
+
+  /* Text */
+  --color-foreground: var(--white);
+  --color-muted-foreground: var(--gray-400);
+
+  /* Brand */
+  --color-primary: var(--blue-500);
+  --color-primary-hover: var(--blue-400);
+
+  --color-accent: var(--cyan-400);
+
+  /* UI */
+  --color-border: var(--slate-800);
+
+  /* Hero Accent */
+
+  --color-gold-light: var(--gold-100);
+  --color-gold: var(--gold-500);
+  --color-gold-dark: var(--gold-700);
+}

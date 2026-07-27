@@ -42,11 +42,11 @@ function Journey() {
       <div className="space-y-8">
         {journey.map((item) => (
           <Card key={item.id}>
-            <p className="text-sm font-semibold text-gray-500">{item.year}</p>
+            <p className="text-sm font-semibold text-muted-foreground">{item.year}</p>
 
             <h3 className="mt-2 text-2xl font-bold">{item.title}</h3>
 
-            <p className="mt-3 leading-7 text-gray-600">{item.description}</p>
+            <p className="mt-3 leading-7 text-muted-foreground">{item.description}</p>
           </Card>
         ))}
       </div>

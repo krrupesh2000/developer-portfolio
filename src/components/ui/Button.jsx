@@ -1,18 +1,58 @@
-function Button({ children, variant = "primary", ...props }) {
-  const variants = {
-    primary: "bg-black text-white hover:bg-gray-800",
+function Button({
+  as: Component = "button",
+  children,
+  variant = "primary",
+  className = "",
+  type = "button",
+  disabled = false,
+  ...props
+}) {
+  
+ const baseStyles = `
+  inline-flex
+  items-center
+  justify-center
+  rounded-lg
+  px-6
+  py-3
+  font-medium
+  transition-default
+  hover:scale-[1.02]
+  active:scale-[0.98]
+  focus-visible:outline-none
+  focus-visible:ring-2
+  focus-visible:ring-primary
+  focus-visible:ring-offset-2
+  disabled:pointer-events-none
+  disabled:opacity-50
+`;
 
-    secondary:
-      "border border-black bg-transparent text-black hover:bg-black hover:text-white",
+  const variants = {
+    primary: `
+      bg-primary
+      text-white
+      hover:bg-primary-hover
+    `,
+
+    secondary: `
+      border
+      border-primary
+      bg-transparent
+      text-foreground
+      hover:bg-primary
+      hover:text-white
+    `,
   };
 
   return (
-    <button
-      className={`rounded-lg px-6 py-3 font-medium transition-all duration-300 hover:scale-105 active:scale-95 ${variants[variant]}`}
+    <Component
+      type={Component === "button" ? type : undefined}
+      disabled={Component === "button" ? disabled : undefined}
+      className={`${baseStyles} ${variants[variant]} ${className}`}
       {...props}
     >
       {children}
-    </button>
+    </Component>
   );
 }
 

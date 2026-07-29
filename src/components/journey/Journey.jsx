@@ -1,7 +1,7 @@
 import SectionTitle from "../ui/SectionTitle";
 
 import JourneyItem from "./JourneyItem";
-import { journeyData } from "./journeyData";
+import { journeyData } from "./JourneyData";
 
 function Journey() {
   return (

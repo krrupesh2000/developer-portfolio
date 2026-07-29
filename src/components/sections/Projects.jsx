@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import Card from "../ui/Card";
-import SectionTitle from "../ui/SectionTitle";
-import { getRepositories } from "../../services/github";
 
+import SectionTitle from "../ui/SectionTitle";
+import ProjectCard from "../projects/ProjectCard";
+
+import { getRepositories } from "../../services/github";
 
 function Projects() {
   const [repos, setRepos] = useState([]);
@@ -38,40 +39,14 @@ function Projects() {
     <section id="projects" className="mx-auto max-w-7xl px-6 py-20">
       <SectionTitle
         align="center"
-        subtitle="Some of my recent GitHub projects."
+        subtitle="A selection of projects that showcase my skills in modern web development."
       >
         Projects
       </SectionTitle>
 
-      <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {repos.map((repo) => (
-          <Card key={repo.id}>
-            <h3 className="text-2xl font-bold">{repo.name}</h3>
-
-            <p className="mt-3 text-muted-foreground">
-              {repo.description ?? "No description provided."}
-            </p>
-
-            <div className="mt-6 flex items-center justify-between">
-              <span className="rounded-full bg-primary/15 px-3 py-1 text-sm text-primary">
-                {repo.language || "Unknown"}
-              </span>
-
-              <span>⭐ {repo.stargazers_count}</span>
-            </div>
-
-            <div className="mt-6 flex gap-4">
-              <a href={repo.html_url} target="_blank" rel="noreferrer">
-                GitHub
-              </a>
-
-              {repo.homepage && (
-                <a href={repo.homepage} target="_blank" rel="noreferrer">
-                  Live Demo
-                </a>
-              )}
-            </div>
-          </Card>
+          <ProjectCard key={repo.id} repo={repo} />
         ))}
       </div>
     </section>

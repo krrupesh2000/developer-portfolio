@@ -1,52 +1,90 @@
-const footerLinks = [
-  { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Projects", href: "#projects" },
-  { label: "Contact", href: "#contact" },
-];
+import { SiGithub } from "@icons-pack/react-simple-icons";
 
-const socialLinks = [
-  { label: "GitHub", href: "https://github.com/krrupesh2000" },
+const navigation = [
   {
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/in/rupesh-kumar-196420155/",
+    label: "About",
+    href: "#about",
   },
-  { label: "Email", href: "mailto:krrupesh2000@gmail.com" },
+  {
+    label: "Skills",
+    href: "#skills",
+  },
+  {
+    label: "Projects",
+    href: "#projects",
+  },
+  {
+    label: "Contact",
+    href: "#contact",
+  },
 ];
 
 function Footer() {
   return (
-    <footer className="border-t border-slate-800 bg-card py-12">
-      <div className="mx-auto flex max-w-7xl flex-col items-center gap-6 px-6 text-center">
-        <h2 className="text-2xl font-bold">Rupesh Kumar</h2>
+    <footer className="mt-24 border-t border-border">
+      <div className="mx-auto max-w-7xl px-6 py-12">
+        {/* Top Section */}
+        <div className="flex flex-col items-center justify-between gap-10 md:flex-row md:items-start">
+          {/* Brand */}
+          <div className="text-center md:text-left">
+            <h2 className="text-xl font-bold tracking-tight">Rupesh Kumar</h2>
 
-        <p className="text-muted-foreground">Full Stack MERN Developer</p>
+            <p className="mt-2 max-w-xs text-sm text-muted-foreground">
+              Building modern, scalable, and user-friendly web applications.
+            </p>
+          </div>
 
-        <ul className="flex flex-wrap justify-center gap-6">
-          {footerLinks.map((link) => (
-            <li key={link.label}>
-              <a href={link.href} className="transition-colors duration-300 hover:text-primary">
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+          {/* Navigation */}
+          <nav>
+            <ul className="flex flex-wrap justify-center gap-6 text-sm font-medium">
+              {navigation.map((item) => (
+                <li key={item.label}>
+                  <a
+                    href={item.href}
+                    className="transition-colors hover:text-primary"
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
-        <div className="flex flex-wrap justify-center gap-6">
-          {socialLinks.map((social) => (
+          {/* Socials */}
+          <div className="flex items-center gap-4">
             <a
-              key={social.label}
-              href={social.href}
-              className="transition-colors duration-300 hover:text-primary"
+              href="https://github.com/krrupesh2000"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              className="rounded-xl border border-border p-3 transition-all hover:border-primary hover:bg-accent"
             >
-              {social.label}
+              <SiGithub size={20} />
             </a>
-          ))}
+
+            <a
+              href="https://www.linkedin.com/in/rupesh-kumar-196420155/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="rounded-xl border border-border p-3 transition-all hover:border-primary hover:bg-accent"
+            >
+              <svg className="h-5 w-5" aria-hidden="true" fill="currentColor">
+                <use href="/icons.svg#social-icon" />
+              </svg>
+            </a>
+          </div>
         </div>
 
-        <p className="text-sm text-muted-foreground">
-          © 2026 Rupesh Kumar. All rights reserved.
-        </p>
+        {/* Divider */}
+        <div className="my-8 border-t border-border" />
+
+        {/* Bottom */}
+        <div className="flex flex-col items-center justify-between gap-4 text-center text-sm text-muted-foreground md:flex-row">
+          <p>© {new Date().getFullYear()} Rupesh Kumar. All rights reserved.</p>
+
+          <p>Built with React, Vite & Tailwind CSS.</p>
+        </div>
       </div>
     </footer>
   );

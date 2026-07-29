@@ -1,79 +1,64 @@
-import Button from "../ui/Button";
+import { Mail, MapPin } from "lucide-react";
+
 import SectionTitle from "../ui/SectionTitle";
+import ContactForm from "../contact/ContactForm";
 
 function Contact() {
   return (
-    <section id="contact" className="mx-auto max-w-4xl px-6 py-20">
+    <section id="contact" className="mx-auto max-w-3xl px-6 py-24">
       <SectionTitle
         align="center"
-        subtitle="Have an idea or opportunity? Let's connect."
+        subtitle="Have a project, job opportunity, or just want to connect? Fill out the form below and I'll get back to you as soon as possible."
       >
-        Contact
+        Let's Work Together
       </SectionTitle>
 
-      <form className="mt-12 space-y-6">
-        <div>
-          <label htmlFor="name" className="mb-2 block font-medium">
-            Name
-          </label>
+      {/* Contact Form */}
+      <ContactForm />
 
-          <input
-            id="name"
-            type="text"
-            placeholder="Enter your name"
-            className="w-full rounded-lg border border-slate-800 bg-card px-4 py-3 text-foreground outline-none transition placeholder:text-muted-foreground focus:border-primary
-focus:ring-2
-focus:ring-primary/30"
-          />
+      {/* Contact Information */}
+      <div className="mt-14 border-t border-border pt-10">
+        <div className="grid gap-8 sm:grid-cols-2">
+          {/* Email */}
+          <div className="flex items-start gap-4">
+            <div className="rounded-xl bg-primary/10 p-3">
+              <Mail size={20} className="text-primary" />
+            </div>
+
+            <div>
+              <h3 className="font-semibold">Email</h3>
+
+              <p className="mt-1 text-sm text-muted-foreground">
+                Prefer email? Reach me directly.
+              </p>
+
+              <a
+                href="mailto:krrupesh2000@email.com"
+                className="mt-2 inline-block text-primary transition-colors hover:underline"
+              >
+                krrupesh2000@email.com
+              </a>
+            </div>
+          </div>
+
+          {/* Location */}
+          <div className="flex items-start gap-4">
+            <div className="rounded-xl bg-primary/10 p-3">
+              <MapPin size={20} className="text-primary" />
+            </div>
+
+            <div>
+              <h3 className="font-semibold">Location</h3>
+
+              <p className="mt-1 text-sm text-muted-foreground">
+                Open to remote opportunities worldwide.
+              </p>
+
+              <p className="mt-2">Bihar, India</p>
+            </div>
+          </div>
         </div>
-
-        <div>
-          <label htmlFor="email" className="mb-2 block font-medium">
-            Email
-          </label>
-
-          <input
-            id="email"
-            type="email"
-            placeholder="Enter your email"
-            className="w-full rounded-lg border border-slate-800 bg-card px-4 py-3 text-foreground outline-none transition placeholder:text-muted-foreground focus:border-primary
-focus:ring-2
-focus:ring-primary/30"
-          />
-        </div>
-
-        <div>
-          <label htmlFor="subject" className="mb-2 block font-medium">
-            Subject
-          </label>
-
-          <input
-            id="subject"
-            type="text"
-            placeholder="Subject"
-            className="w-full rounded-lg border border-slate-800 bg-card px-4 py-3 text-foreground outline-none transition placeholder:text-muted-foreground focus:border-primary
-focus:ring-2
-focus:ring-primary/30"
-          />
-        </div>
-
-        <div>
-          <label htmlFor="message" className="mb-2 block font-medium">
-            Message
-          </label>
-
-          <textarea
-            id="message"
-            rows="6"
-            placeholder="Write your message..."
-            className="w-full rounded-lg border border-slate-800 bg-card px-4 py-3 text-foreground outline-none transition placeholder:text-muted-foreground focus:border-primary
-focus:ring-2
-focus:ring-primary/30"
-          />
-        </div>
-
-        <Button type="submit">Send Message</Button>
-      </form>
+      </div>
     </section>
   );
 }

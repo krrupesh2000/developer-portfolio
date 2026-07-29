@@ -1,10 +1,10 @@
-import Navbar from "./components/layout/Navbar";
-import Hero from "./components/sections/Hero";
-import About from "./components/sections/About";
-import Skills from "./components/sections/Skills";
-import Projects from "./components/sections/Projects";
+import Navbar from "./components/navbar/Navbar";
+import Hero from "./components/hero/Hero";
+import About from "./components/about/About";
+import Skills from "./components/skills/Skills";
+import Projects from "./components/projects/Projects";
 import Journey from "./components/journey/Journey";
-import Contact from "./components/sections/Contact";
+import Contact from "./components/contact/Contact";
 import Footer from "./components/layout/Footer";
 
 function App() {

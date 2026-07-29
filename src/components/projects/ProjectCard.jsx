@@ -1,10 +1,11 @@
 import Card from "../ui/Card";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, ImageIcon } from "lucide-react";
 import { SiGithub } from "@icons-pack/react-simple-icons";
 import { projectMetadata } from "../../data/projectMetadata";
 
 function ProjectCard({ repo }) {
   const normalizedName = repo.name.toLowerCase().replace(/[\s_]+/g, "-");
+
   const metadata =
     projectMetadata[repo.name] ||
     projectMetadata[repo.name.toLowerCase()] ||
@@ -17,81 +18,192 @@ function ProjectCard({ repo }) {
   const remaining = technologies.length - visibleTechnologies.length;
 
   return (
-    <Card className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:-translate-y-2 hover:border-primary/30 hover:shadow-xl">
-      {metadata.image ? (
-        <img
-          src={metadata.image}
-          alt={`${repo.name} preview`}
-          className="h-52 w-full border-b object-cover transition-transform duration-500 group-hover:scale-105"
-        />
-      ) : (
-        <div className="flex h-52 items-center justify-center border-b bg-muted text-muted-foreground">
-        <div className="text-center">
-          <div className="text-3xl">🖼️</div>
+    <Card
+      className="
+        group
+        flex
+        h-full
+        flex-col
+        overflow-hidden
+        rounded-2xl
+        border
+        border-border
+        bg-card
+        transition-all
+        duration-300
+        hover:-translate-y-1
+        hover:border-primary/30
+        hover:shadow-lg
+      "
+    >
+      {/* Project Image */}
+      <div className="relative overflow-hidden border-b">
+        {metadata.image ? (
+          <>
+            <img
+              src={metadata.image}
+              alt={`${repo.name} project screenshot`}
+              loading="lazy"
+              decoding="async"
+              className="
+                h-44
+                w-full
+                object-cover
+                transition-transform
+                duration-500
+                group-hover:scale-105
+                sm:h-48
+                lg:h-52
+              "
+            />
 
-          <p className="mt-2 text-sm font-medium">Project Preview</p>
+            <div className="absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/10" />
+          </>
+        ) : (
+          <div className="flex h-44 items-center justify-center bg-muted text-muted-foreground sm:h-48 lg:h-52">
+            <div className="text-center">
+              <ImageIcon
+                size={36}
+                className="mx-auto opacity-60"
+                aria-hidden="true"
+              />
 
-          <p className="mt-1 text-xs">Screenshot Coming Soon</p>
-        </div>
-        </div>
-      )}
+              <p className="mt-3 text-sm font-medium">Preview Coming Soon</p>
 
+              <p className="mt-1 text-xs">Screenshot will be added</p>
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Content */}
       <div className="flex flex-1 flex-col p-6">
-        {/* Project Name */}
-        <h3 className="text-2xl font-semibold tracking-tight capitalize">
+        {/* Title */}
+        <h3 className="text-xl font-semibold tracking-tight capitalize lg:text-2xl">
           {repo.name}
         </h3>
 
         {/* Description */}
-        <p className="mt-4 line-clamp-3 text-sm leading-7 text-muted-foreground">
-          {repo.description || "No description provided."}
+        <p className="mt-4 line-clamp-3 text-sm leading-6 text-muted-foreground">
+          {repo.description || "No description available."}
         </p>
 
-        {/* Technology Chips */}
+        {/* Tech Stack */}
         <div className="mt-6 flex flex-wrap gap-2">
           {visibleTechnologies.map((tech) => (
             <span
               key={tech}
-              className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-medium text-primary transition-colors hover:bg-primary/20"
+              className="
+                rounded-full
+                border
+                border-primary/20
+                bg-primary/10
+                px-2.5
+                py-1
+                text-xs
+                font-medium
+                text-primary
+                transition-colors
+                hover:bg-primary/20
+              "
             >
               {tech}
             </span>
           ))}
 
           {remaining > 0 && (
-            <span className="rounded-full border border-dashed border-border px-3 py-1 text-xs text-muted-foreground">
+            <span
+              className="
+                rounded-full
+                border
+                border-dashed
+                border-border
+                px-2.5
+                py-1
+                text-xs
+                text-muted-foreground
+              "
+            >
               +{remaining}
             </span>
           )}
         </div>
 
         {/* Footer */}
-        <div className="mt-auto">
-          <div className="my-6 border-t border-border" />
+        <div className="mt-auto pt-6">
+          <div className="mb-6 border-t border-border" />
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center justify-between gap-3">
             {/* GitHub */}
             <a
               href={repo.html_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2 text-sm font-medium transition-all duration-300 hover:border-primary/30 hover:bg-accent"
+              aria-label={`View ${repo.name} source code on GitHub`}
+              className="
+                inline-flex
+                items-center
+                gap-2
+                rounded-lg
+                border
+                border-border
+                px-4
+                py-2
+                text-sm
+                font-medium
+                transition-all
+                duration-300
+                hover:border-primary/30
+                hover:bg-accent
+                focus-visible:outline-none
+                focus-visible:ring-2
+                focus-visible:ring-primary
+                focus-visible:ring-offset-2
+                focus-visible:ring-offset-background
+              "
             >
               <SiGithub size={16} />
               <span>GitHub</span>
             </a>
 
             {/* Live Demo */}
-            {repo.homepage && (
+            {repo.homepage ? (
               <a
                 href={repo.homepage}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
+                aria-label={`Open live demo of ${repo.name}`}
+                className="
+                  inline-flex
+                  items-center
+                  gap-2
+                  rounded-lg
+                  bg-primary
+                  px-4
+                  py-2
+                  text-sm
+                  font-medium
+                  text-primary-foreground
+                  transition-all
+                  duration-300
+                  hover:shadow-md
+                  hover:brightness-110
+                  focus-visible:outline-none
+                  focus-visible:ring-2
+                  focus-visible:ring-primary
+                  focus-visible:ring-offset-2
+                  focus-visible:ring-offset-background
+                "
               >
                 <span>Live Demo</span>
                 <ExternalLink size={16} />
               </a>
+            ) : (
+              <div className="flex gap-3">
+                <a className="flex-1 ...">GitHub</a>
+
+                {repo.homepage && <a className="flex-1 ...">Live Demo</a>}
+              </div>
             )}
           </div>
         </div>

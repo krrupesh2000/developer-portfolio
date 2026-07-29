@@ -1,5 +1,5 @@
 import Section from "../ui/Section";
-import SkillGrid from "../skills/SkillGrid";
+import SkillGrid from "./SkillGrid";
 
 function Skills() {
   return (

@@ -6,28 +6,27 @@ import ResumeButton from "./ResumeButton";
 
 function AboutContent() {
   return (
-    <motion.div variants={fadeLeft} className="max-w-2xl">
-      <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
-        About Me
-      </p>
-
-      <h3 className="mt-4 text-3xl font-bold tracking-tight lg:text-4xl">
-        Building scalable digital experiences with clean, modern web
-        technologies.
+    <motion.div
+      variants={fadeLeft}
+      className="mx-auto max-w-xl lg:mx-0 lg:max-w-2xl"
+    >
+      <h3 className="text-xl font-bold tracking-tight sm:text-2xl lg:text-2xl">
+        Crafting modern, performant web applications with a focus on clean code
+        and great user experiences.
       </h3>
 
-      <p className="mt-6 leading-8 text-muted-foreground">
+      <p className="mt-5 lg:mt-6 leading-8 text-muted-foreground">
         I'm a Full Stack Developer passionate about creating responsive,
         user-focused web applications with modern technologies. I enjoy turning
         ideas into intuitive digital experiences while writing clean,
         maintainable, and scalable code.
       </p>
 
-      <p className="mt-4 leading-8 text-muted-foreground">
-        My current focus is mastering React and strengthening my frontend
-        expertise before expanding into backend development. I believe in
-        continuous learning, building real-world projects, and improving through
-        practical experience.
+      <p className="mt-3 lg:mt-4 leading-8 text-muted-foreground">
+        My current focus is mastering React while building a strong full-stack
+        foundation with Node.js, databases, and modern development practices.
+        I'm also exploring DevOps and cloud technologies to understand the
+        complete software development lifecycle.
       </p>
 
       <QuickFacts />

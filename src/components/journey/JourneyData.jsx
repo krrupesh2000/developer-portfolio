@@ -41,11 +41,4 @@ export const journeyData = [
       "Planning to learn Docker, CI/CD, cloud platforms, and deployment workflows for scalable application deployment.",
   },
 
-  {
-    status: "vision",
-    category: "Career",
-    title: "Vision",
-    description:
-      "Build scalable, performant, and user-friendly web applications as a Full-Stack + DevOps Engineer while continuously learning modern technologies.",
-  },
 ];

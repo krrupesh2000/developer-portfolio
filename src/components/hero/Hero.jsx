@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 
 import { getProfile } from "../../services/github";
 
@@ -13,6 +13,8 @@ function Hero() {
   const [profile, setProfile] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
     async function fetchProfile() {
@@ -33,7 +35,7 @@ function Hero() {
     return (
       <section
         id="home"
-        className="section flex min-h-screen items-center justify-center"
+        className="flex min-h-screen items-center py-8 lg:py-0"
       >
         <div className="container">
           <p className="text-center text-lg font-medium text-muted-foreground">
@@ -48,7 +50,7 @@ function Hero() {
     return (
       <section
         id="home"
-        className="section flex min-h-screen items-center justify-center"
+        className="flex min-h-screen items-center py-8 lg:py-0"
       >
         <div className="container">
           <p className="text-center text-lg font-medium text-red-500">
@@ -60,29 +62,16 @@ function Hero() {
   }
 
   return (
-    <section id="home" className="section flex min-h-screen items-center">
+    <section id="home" className="flex min-h-screen items-center py-8 lg:py-0">
       <div className="container">
-        <div className="grid items-center gap-16 lg:grid-cols-2">
-          {/* ========================= */}
-          {/* Content */}
-          {/* ========================= */}
+        <div className="grid items-center gap-10 lg:gap-14 xl:gap-16 lg:grid-cols-2">
 
           <motion.div
             className="order-2 text-center lg:order-1 lg:text-left"
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
+            variants={shouldReduceMotion ? undefined : fadeUp}
+            initial={shouldReduceMotion ? false : "hidden"}
+            animate={shouldReduceMotion ? undefined : "visible"}
           >
-            {/* Availability */}
-
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2">
-              <span className="h-2.5 w-2.5 rounded-full bg-green-500" />
-
-              <span className="text-sm font-medium text-muted-foreground">
-                Available for Full-Time Opportunities
-              </span>
-            </div>
-
             {/* Greeting */}
 
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-muted-foreground">
@@ -101,9 +90,26 @@ function Hero() {
               Full Stack MERN Developer
             </h2>
 
+            {/* Availability */}
+
+            <div
+              className="mb-8 inline-flex items-center gap-2 rounded-full border border-green-500/20 bg-green-500/5 px-4 py-2"
+              role="status"
+              aria-label="Currently available for full-time opportunities"
+            >
+              <span
+                className="h-2.5 w-2.5 rounded-full bg-green-500"
+                aria-hidden="true"
+              />
+
+              <span className="text-sm font-medium text-foreground">
+                Available for Full-Time Opportunities
+              </span>
+            </div>
+
             {/* Description */}
 
-            <p className="mb-10 max-w-lg text-lg leading-8 text-muted-foreground lg:mx-0">
+            <p className="mb-10 mx-auto max-w-xl text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8 lg:mx-0 lg:max-w-2xl">
               I build modern, scalable, and user-focused web applications using
               React, Node.js, Express, MongoDB, and modern development
               practices. Passionate about clean architecture, performance,
@@ -114,12 +120,16 @@ function Hero() {
 
             <motion.div
               className="mb-8 flex flex-wrap justify-center gap-4 lg:justify-start"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{
-                delay: 0.35,
-                duration: 0.5,
-              }}
+              initial={shouldReduceMotion ? false : { opacity: 0 }}
+              animate={shouldReduceMotion ? undefined : { opacity: 1 }}
+              transition={
+                shouldReduceMotion
+                  ? undefined
+                  : {
+                      delay: 0.35,
+                      duration: 0.5,
+                    }
+              }
             >
               <Button as="a" href="#projects">
                 View My Projects
@@ -132,11 +142,7 @@ function Hero() {
 
             {/* Social */}
 
-            <div>
-              <p className="mb-3 text-sm font-medium text-muted-foreground">
-                Connect with me
-              </p>
-
+            <div className="mt-3">
               <SocialLinks className="justify-center lg:justify-start" />
             </div>
           </motion.div>
@@ -147,9 +153,9 @@ function Hero() {
 
           <motion.div
             className="order-1 flex justify-center lg:order-2"
-            variants={fadeLeft}
-            initial="hidden"
-            animate="visible"
+            variants={shouldReduceMotion ? undefined : fadeLeft}
+            initial={shouldReduceMotion ? false : "hidden"}
+            animate={shouldReduceMotion ? undefined : "visible"}
           >
             <HeroImage src={profile.avatar_url} alt={profile.name} />
           </motion.div>

@@ -40,19 +40,20 @@ function AboutHeader() {
 
         <img
           src={Profile}
-          alt="Rupesh Kumar"
+          alt="Portrait of Rupesh Kumar"
           draggable={false}
           className="
-            h-80
-            w-72
+            h-64
+            w-56
             rounded-[20px]
             object-cover
             select-none
             transition-default
             group-hover:scale-[1.02]
 
-            lg:h-[28rem]
-            lg:w-80
+            sm:h-72 sm:w-64
+            lg:h-90 lg:w-72
+            xl:h-100 xl:w-80
           "
         />
       </div>

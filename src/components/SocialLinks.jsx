@@ -24,7 +24,7 @@ const socialLinks = [
 
 export default function SocialLinks({ className = "" }) {
   return (
-    <div className={`flex items-center gap-3 ${className}`}>
+    <div className={`flex items-center gap-4 ${className}`}>
       {socialLinks.map((link) => (
         <a
           key={link.name}
@@ -34,31 +34,32 @@ export default function SocialLinks({ className = "" }) {
           aria-label={link.name}
           title={link.name}
           className="
-            group
-            flex h-11 w-11 items-center justify-center
-            rounded-full
-            border border-border
-            bg-card
-            text-muted-foreground
-            transition-default
-            hover:border-primary
-            hover:bg-card-hover
-            hover:text-primary
-            focus-visible:outline-none
-            focus-visible:ring-2
-            focus-visible:ring-primary
-            focus-visible:ring-offset-2
-            hover:-translate-y-0.5
-          "
+group
+flex h-11 w-11 items-center justify-center
+rounded-full
+border border-border
+bg-card
+text-muted-foreground
+transition-all duration-200
+hover:-translate-y-1
+hover:border-primary
+hover:bg-primary/5
+hover:text-primary
+hover:shadow-md
+focus-visible:outline-none
+focus-visible:ring-2
+focus-visible:ring-primary
+focus-visible:ring-offset-2
+"
         >
           {link.type === "sprite" ? (
-            <svg className="h-5 w-5" aria-hidden="true" fill="currentColor">
+            <svg className="h-5.5 w-5.5" aria-hidden="true" fill="currentColor">
               <use href={`/icons.svg#${link.symbolId}`} />
             </svg>
           ) : link.type === "brand" ? (
-            <link.icon size={18} aria-hidden="true" />
+            <link.icon size={20} aria-hidden="true" />
           ) : (
-            <link.icon size={18} aria-hidden="true" strokeWidth={2} />
+            <link.icon size={20} aria-hidden="true" strokeWidth={2} />
           )}
         </a>
       ))}

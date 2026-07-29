@@ -23,14 +23,14 @@ function QuickFacts() {
     {
       icon: Code2,
       title: "Current Focus",
-      value: "React & Full Stack",
+      value: "React • MERN • DevOps",
     },
   ];
 
   return (
     <motion.div
       variants={staggerFast}
-      className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2"
+      className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2"
     >
       {facts.map((fact) => {
         const Icon = fact.icon;
@@ -41,6 +41,9 @@ function QuickFacts() {
             variants={fadeUp}
             className="
               group
+              flex
+              items-center
+              gap-4
               rounded-2xl
               border
               border-border
@@ -55,30 +58,30 @@ function QuickFacts() {
           >
             <div
               className="
-                mb-4
                 flex
                 h-11
                 w-11
+                shrink-0
                 items-center
                 justify-center
                 rounded-xl
                 bg-primary/10
                 text-primary
                 transition-default
-                group-hover:scale-110
+                group-hover:scale-105
                 group-hover:bg-primary/15
               "
             >
               <Icon size={20} aria-hidden="true" />
             </div>
 
-            <h4 className="text-sm font-medium text-muted-foreground">
-              {fact.title}
-            </h4>
+            <div className="min-w-0">
+              <p className="text-base font-semibold text-foreground">
+                {fact.value}
+              </p>
 
-            <p className="mt-1 text-base font-semibold text-foreground">
-              {fact.value}
-            </p>
+              <p className="mt-1 text-sm text-muted-foreground">{fact.title}</p>
+            </div>
           </motion.div>
         );
       })}

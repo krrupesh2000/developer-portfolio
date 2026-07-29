@@ -16,12 +16,6 @@ const statusConfig = {
     badge: "bg-amber-500/10 text-amber-600 dark:text-amber-400",
     label: "Planned",
   },
-
-  vision: {
-    dot: "bg-primary",
-    badge: "bg-primary/10 text-primary",
-    label: "Vision",
-  },
 };
 
 function cn(...classes) {
@@ -32,45 +26,67 @@ function JourneyItem({ item, isLast }) {
   const config = statusConfig[item.status];
 
   return (
-    <div className="relative flex gap-6">
+    <div className="relative flex gap-5 lg:gap-6">
       {/* Timeline */}
       <div className="flex flex-col items-center">
         <span
           className={cn(
-            "h-4 w-4 rounded-full border-4 border-background",
+            "h-3.5 w-3.5 rounded-full border-[3px] border-background transition-colors duration-300",
             config.dot,
           )}
         />
 
-        {!isLast && <span className="mt-2 h-full w-px bg-border" />}
+        {!isLast && <span className="mt-2 h-full w-px bg-border/70" />}
       </div>
 
       {/* Card */}
-      <div className="mb-10 flex-1 rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:border-primary/30 hover:shadow-lg">
+      <div
+        className="
+          mb-8
+          flex-1
+          rounded-2xl
+          border
+          border-border
+          bg-card
+          p-5
+          transition-all
+          duration-300
+          ease-out
+          hover:-translate-y-1
+          hover:border-primary/30
+          hover:shadow-md
+          lg:p-6
+        "
+      >
+        {/* Badges */}
         <div className="mb-4 flex flex-wrap items-center gap-2">
           <span
             className={cn(
-              "rounded-full px-3 py-1 text-xs font-medium",
+              "rounded-full px-2.5 py-1 text-xs font-medium",
               config.badge,
             )}
           >
             {config.label}
           </span>
 
-          <span className="rounded-full bg-muted px-3 py-1 text-xs text-muted-foreground">
+          <span className="rounded-full bg-muted px-2.5 py-1 text-xs text-muted-foreground">
             {item.category}
           </span>
 
           {item.focus && (
-            <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
+            <span className="rounded-full bg-primary/10 px-2.5 py-1 text-xs font-medium text-primary">
               {item.focus}
             </span>
           )}
         </div>
 
-        <h3 className="text-xl font-semibold">{item.title}</h3>
+        {/* Title */}
+        <h3 className="text-lg font-semibold tracking-tight lg:text-xl">
+          {item.title}
+        </h3>
 
-        <p className="mt-3 leading-7 text-muted-foreground">
+        {/* Description */}
+        <p className="mt-3 text-sm leading-6 text-muted-foreground">
           {item.description}
         </p>
       </div>

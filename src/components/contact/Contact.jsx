@@ -1,7 +1,7 @@
 import { Mail, MapPin } from "lucide-react";
 
 import SectionTitle from "../ui/SectionTitle";
-import ContactForm from "../contact/ContactForm";
+import ContactForm from "./ContactForm";
 
 function Contact() {
   return (
@@ -17,7 +17,7 @@ function Contact() {
       <ContactForm />
 
       {/* Contact Information */}
-      <div className="mt-14 border-t border-border pt-10">
+      <div className="mt-10 border-t border-border pt-10">
         <div className="grid gap-8 sm:grid-cols-2">
           {/* Email */}
           <div className="flex items-start gap-4">

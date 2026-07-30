@@ -1,14 +1,13 @@
 function Button({
-  as: Component = "button",
+  as: Component = 'button',
   children,
-  variant = "primary",
-  className = "",
-  type = "button",
+  variant = 'primary',
+  className = '',
+  type = 'button',
   disabled = false,
   ...props
 }) {
-  
- const baseStyles = `
+  const baseStyles = `
   inline-flex
   items-center
   justify-center
@@ -47,8 +46,8 @@ function Button({
 
   return (
     <Component
-      type={Component === "button" ? type : undefined}
-      disabled={Component === "button" ? disabled : undefined}
+      type={Component === 'button' ? type : undefined}
+      disabled={Component === 'button' ? disabled : undefined}
       className={`${baseStyles} ${variants[variant]} ${className}`}
       {...props}
     >

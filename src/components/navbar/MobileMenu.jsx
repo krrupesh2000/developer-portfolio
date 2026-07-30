@@ -1,8 +1,8 @@
-import { FiX } from "react-icons/fi";
-import clsx from "clsx";
-import { useEffect, useRef } from "react";
+import { FiX } from 'react-icons/fi';
+import clsx from 'clsx';
+import { useEffect, useRef, memo } from 'react';
 
-import NavLinks from "./NavLinks";
+import NavLinks from './NavLinks';
 
 const FOCUSABLE_SELECTORS = `
   a[href],
@@ -20,10 +20,10 @@ function MobileMenu({ open, onClose, activeSection, menuButtonRef }) {
    * Body Scroll Lock
    * ----------------------------------------------------- */
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
+    document.body.style.overflow = open ? 'hidden' : '';
 
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.overflow = '';
     };
   }, [open]);
 
@@ -39,12 +39,12 @@ function MobileMenu({ open, onClose, activeSection, menuButtonRef }) {
     panelRef.current?.focus();
 
     const handleKeyDown = (event) => {
-      if (event.key === "Escape") {
+      if (event.key === 'Escape') {
         onClose();
         return;
       }
 
-      if (event.key !== "Tab") return;
+      if (event.key !== 'Tab') return;
 
       const focusableElements =
         panelRef.current?.querySelectorAll(FOCUSABLE_SELECTORS) ?? [];
@@ -65,16 +65,16 @@ function MobileMenu({ open, onClose, activeSection, menuButtonRef }) {
       }
     };
 
-    document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener('keydown', handleKeyDown);
 
-    return () => document.removeEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
   }, [open, onClose, menuButtonRef]);
 
   return (
     <div
       className={clsx(
-        "fixed inset-0 z-50 lg:hidden",
-        open ? "pointer-events-auto" : "pointer-events-none",
+        'fixed inset-0 z-50 lg:hidden',
+        open ? 'pointer-events-auto' : 'pointer-events-none',
       )}
       aria-hidden={!open}
     >
@@ -86,8 +86,8 @@ function MobileMenu({ open, onClose, activeSection, menuButtonRef }) {
         onClick={onClose}
         tabIndex={open ? 0 : -1}
         className={clsx(
-          "absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-300 motion-reduce:transition-none",
-          open ? "opacity-100" : "opacity-0",
+          'absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-300 motion-reduce:transition-none',
+          open ? 'opacity-100' : 'opacity-0',
         )}
       />
 
@@ -101,8 +101,8 @@ function MobileMenu({ open, onClose, activeSection, menuButtonRef }) {
         aria-label="Mobile navigation"
         tabIndex={-1}
         className={clsx(
-          "absolute right-0 top-0 flex h-full w-[85%] max-w-sm flex-col border-l border-border bg-background shadow-2xl transition-transform duration-300 ease-out motion-reduce:transition-none",
-          open ? "translate-x-0" : "translate-x-full",
+          'absolute right-0 top-0 flex h-full w-[85%] max-w-sm flex-col border-l border-border bg-background shadow-2xl transition-transform duration-300 ease-out motion-reduce:transition-none',
+          open ? 'translate-x-0' : 'translate-x-full',
         )}
       >
         {/* Header */}
@@ -134,12 +134,11 @@ function MobileMenu({ open, onClose, activeSection, menuButtonRef }) {
 
         <div className="border-t border-border p-6">
           <a
-            href="/Rupesh's-resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/resume.pdf"
+            download
             className="inline-flex w-full items-center justify-center rounded-xl bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
           >
-            View Resume
+            Download Resume
           </a>
         </div>
       </aside>
@@ -147,4 +146,7 @@ function MobileMenu({ open, onClose, activeSection, menuButtonRef }) {
   );
 }
 
-export default MobileMenu;
+const MemoizedMobileMenu = memo(MobileMenu);
+MemoizedMobileMenu.displayName = 'MobileMenu';
+
+export default MemoizedMobileMenu;

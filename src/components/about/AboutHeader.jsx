@@ -1,7 +1,7 @@
-import { motion } from "motion/react";
-import { fadeRight } from "../../animations/variants";
+import { motion } from 'motion/react';
+import { fadeRight } from '../../animations/variants';
 
-import Profile from "../../assets/Profile.png";
+import Profile from '../../assets/profile-optimized.jpg';
 
 function AboutHeader() {
   return (
@@ -52,8 +52,8 @@ function AboutHeader() {
             group-hover:scale-[1.02]
 
             sm:h-72 sm:w-64
-            lg:h-90 lg:w-72
-            xl:h-100 xl:w-80
+            lg:h-80 lg:w-68
+            xl:h-88 xl:w-72
           "
         />
       </div>

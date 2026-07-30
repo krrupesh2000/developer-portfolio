@@ -1,5 +1,5 @@
-import { skills } from "../../data/skills";
-import SkillCard from "./SkillCard";
+import { skills } from '../../data/skills';
+import SkillCard from './SkillCard';
 
 function SkillGrid() {
   return (

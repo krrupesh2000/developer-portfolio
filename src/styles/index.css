@@ -1,9 +1,9 @@
-@import "./tokens.css";
-@import "./theme.css";
-@import "./typography.css";
-@import "./shadows.css";
-@import "./utilities.css";
-@import "./animations.css";
+@import './tokens.css';
+@import './theme.css';
+@import './typography.css';
+@import './shadows.css';
+@import './utilities.css';
+@import './animations.css';
 
 html {
   scroll-behavior: smooth;
@@ -12,4 +12,3 @@ html {
 body {
   @apply bg-background text-foreground;
 }
-

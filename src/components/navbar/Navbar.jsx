@@ -1,14 +1,23 @@
-import { useEffect, useState, useRef } from "react";
-import { FiMenu } from "react-icons/fi";
-import clsx from "clsx";
+import {
+  useEffect,
+  useState,
+  useRef,
+  Suspense,
+  lazy,
+  useCallback,
+  memo,
+} from 'react';
+import { FiMenu } from 'react-icons/fi';
+import clsx from 'clsx';
 
-import NavLinks from "./NavLinks";
-import MobileMenu from "./MobileMenu";
-import { useActiveSection } from "./useActiveSection";
+import NavLinks from './NavLinks';
+import { useActiveSection } from './useActiveSection';
+import { scrollToSection } from '../../utils/scrollTo';
+
+const MobileMenu = lazy(() => import('./MobileMenu'));
 
 function Navbar() {
   const activeSection = useActiveSection();
-
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const menuButtonRef = useRef(null);
@@ -20,23 +29,28 @@ function Navbar() {
 
     handleScroll();
 
-    window.addEventListener("scroll", handleScroll, {
+    window.addEventListener('scroll', handleScroll, {
       passive: true,
     });
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const closeMenu = () => setMenuOpen(false);
+  const closeMenu = useCallback(() => setMenuOpen(false), []);
+
+  const handleLogoClick = (event) => {
+    event.preventDefault();
+    scrollToSection('#home');
+  };
 
   return (
     <>
       <header
         className={clsx(
-          "fixed inset-x-0 top-0 z-50 transition-all duration-300",
+          'fixed inset-x-0 top-0 z-50 transition-all duration-300',
           scrolled
-            ? "border-b border-border bg-background/80 backdrop-blur-xl"
-            : "bg-transparent",
+            ? 'border-b border-border bg-background/80 backdrop-blur-xl'
+            : 'bg-transparent',
         )}
       >
         <nav
@@ -44,7 +58,11 @@ function Navbar() {
           className="container flex h-16 items-center justify-between"
         >
           {/* Logo */}
-          <a href="#home" className="text-xl font-bold tracking-tight">
+          <a
+            href="#home"
+            onClick={handleLogoClick}
+            className="text-xl font-bold tracking-tight"
+          >
             RK
           </a>
 
@@ -81,14 +99,19 @@ function Navbar() {
         </nav>
       </header>
 
-      <MobileMenu
-        open={menuOpen}
-        onClose={closeMenu}
-        activeSection={activeSection}
-        menuButtonRef={menuButtonRef}
-      />
+      <Suspense fallback={null}>
+        <MobileMenu
+          open={menuOpen}
+          onClose={closeMenu}
+          activeSection={activeSection}
+          menuButtonRef={menuButtonRef}
+        />
+      </Suspense>
     </>
   );
 }
 
-export default Navbar;
+const MemoizedNavbar = memo(Navbar);
+MemoizedNavbar.displayName = 'Navbar';
+
+export default MemoizedNavbar;

@@ -1,5 +1,5 @@
-import { FiDownload } from "react-icons/fi";
-import Button from "../ui/Button";
+import { FiDownload } from 'react-icons/fi';
+import Button from '../ui/Button';
 
 function ResumeButton() {
   return (

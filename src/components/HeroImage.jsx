@@ -1,6 +1,6 @@
-import { motion } from "motion/react";
+import { motion } from 'motion/react';
 
-function HeroImage({ src, alt = "Profile Photo" }) {
+function HeroImage({ src, alt = 'Profile Photo' }) {
   return (
     <div className="group relative flex items-center justify-center">
       {/* Decorative Ring */}
@@ -38,8 +38,8 @@ function HeroImage({ src, alt = "Profile Photo" }) {
         transition={{
           duration: 6,
           repeat: Infinity,
-          repeatType: "mirror",
-          ease: "easeInOut",
+          repeatType: 'mirror',
+          ease: 'easeInOut',
         }}
       />
 

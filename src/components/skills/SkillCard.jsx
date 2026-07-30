@@ -1,5 +1,5 @@
-import { motion } from "motion/react";
-import { fadeUp } from "../../animations/variants";
+import { motion } from 'motion/react';
+import { fadeUp } from '../../animations/variants';
 
 function SkillCard({ skill }) {
   const Icon = skill.icon;

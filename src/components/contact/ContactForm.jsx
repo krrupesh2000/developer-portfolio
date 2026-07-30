@@ -1,11 +1,11 @@
-import { useState } from "react";
-import { FiLoader, FiSend } from "react-icons/fi";
+import { useState } from 'react';
+import { FiLoader, FiSend } from 'react-icons/fi';
 
 const SUBJECTS = [
-  "Job Opportunity",
-  "Freelance Project",
-  "Collaboration",
-  "General Inquiry",
+  'Job Opportunity',
+  'Freelance Project',
+  'Collaboration',
+  'General Inquiry',
 ];
 
 function ContactForm() {
@@ -13,12 +13,24 @@ function ContactForm() {
 
   const [status, setStatus] = useState(null);
 
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState('');
 
   const maxCharacters = 1000;
 
   async function handleSubmit(e) {
     e.preventDefault();
+
+    const endpoint = import.meta.env.VITE_FORMSPREE_ENDPOINT;
+
+    if (!endpoint) {
+      setStatus({
+        type: 'error',
+        title: 'Contact form unavailable',
+        message:
+          'Please email me directly at krrupesh2000@gmail.com while the form is being configured.',
+      });
+      return;
+    }
 
     setLoading(true);
     setStatus(null);
@@ -28,36 +40,36 @@ function ContactForm() {
     const formData = new FormData(form);
 
     try {
-      const response = await fetch(import.meta.env.VITE_FORMSPREE_ENDPOINT, {
-        method: "POST",
+      const response = await fetch(endpoint, {
+        method: 'POST',
         body: formData,
         headers: {
-          Accept: "application/json",
+          Accept: 'application/json',
         },
       });
 
       if (response.ok) {
         form.reset();
-        setMessage("");
+        setMessage('');
 
         setStatus({
-          type: "success",
-          title: "Message Sent!",
+          type: 'success',
+          title: 'Message Sent!',
           message:
             "Thank you for reaching out. I'll get back to you as soon as possible.",
         });
       } else {
         setStatus({
-          type: "error",
-          title: "Something went wrong",
+          type: 'error',
+          title: 'Something went wrong',
           message: "Your message couldn't be sent. Please try again.",
         });
       }
     } catch {
       setStatus({
-        type: "error",
-        title: "Network Error",
-        message: "Unable to connect. Please try again later.",
+        type: 'error',
+        title: 'Network Error',
+        message: 'Unable to connect. Please try again later.',
       });
     }
 
@@ -65,7 +77,10 @@ function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="section-content space-y-8">
+    <form
+      onSubmit={handleSubmit}
+      className="section-content space-y-6 sm:space-y-7"
+    >
       {/* Honeypot */}
       <input
         type="text"
@@ -127,7 +142,7 @@ function ContactForm() {
                 className="peer sr-only"
               />
 
-              <div className="rounded-xl border border-border p-4 transition-all duration-300 hover:border-primary/40 hover:bg-accent peer-checked:border-primary peer-checked:bg-primary/10 peer-checked:ring-2 peer-checked:ring-primary/20">
+              <div className="rounded-xl border border-border p-3.5 transition-all duration-300 hover:border-primary/40 hover:bg-accent peer-checked:border-primary peer-checked:bg-primary/10 peer-checked:ring-2 peer-checked:ring-primary/20 sm:p-4">
                 <p className="text-sm font-medium sm:text-base">{subject}</p>
               </div>
             </label>
@@ -145,8 +160,8 @@ function ContactForm() {
           <span
             className={`text-xs ${
               message.length > maxCharacters * 0.9
-                ? "text-orange-500"
-                : "text-muted-foreground"
+                ? 'text-orange-500'
+                : 'text-muted-foreground'
             }`}
           >
             {message.length}/{maxCharacters}
@@ -162,7 +177,7 @@ function ContactForm() {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           placeholder="Tell me about your project, opportunity, or idea..."
-          className="w-full resize-none rounded-xl border border-border bg-background px-4 py-3 leading-7 transition-colors outline-none focus:border-primary"
+          className="w-full resize-y rounded-xl border border-border bg-background px-4 py-3 leading-7 transition-colors outline-none focus:border-primary"
         />
       </div>
 
@@ -190,9 +205,9 @@ function ContactForm() {
         <div
           role="alert"
           className={`rounded-xl border p-4 ${
-            status.type === "success"
-              ? "border-green-500/20 bg-green-500/10 text-green-700 dark:text-green-400"
-              : "border-red-500/20 bg-red-500/10 text-red-700 dark:text-red-400"
+            status.type === 'success'
+              ? 'border-green-500/20 bg-green-500/10 text-green-700 dark:text-green-400'
+              : 'border-red-500/20 bg-red-500/10 text-red-700 dark:text-red-400'
           }`}
         >
           <h4 className="font-semibold">{status.title}</h4>

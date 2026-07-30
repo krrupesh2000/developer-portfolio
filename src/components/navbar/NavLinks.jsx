@@ -1,29 +1,29 @@
-import clsx from "clsx";
-import { navItems } from "./navItems";
+import { memo, useCallback } from 'react';
+import clsx from 'clsx';
+import { navItems } from './navItems';
+import { scrollToSection } from '../../utils/scrollTo';
 
-function NavLinks({ activeSection, orientation = "horizontal", onNavigate }) {
-  const handleClick = (event, href) => {
-    event.preventDefault();
+function NavLinks({ activeSection, orientation = 'horizontal', onNavigate }) {
+  const handleClick = useCallback(
+    (event, item) => {
+      event.preventDefault();
+      scrollToSection(item.href);
+      onNavigate?.();
 
-    const target = document.querySelector(href);
-
-    if (!target) return;
-
-    target.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-
-    onNavigate?.();
-  };
+      if (document.activeElement instanceof HTMLElement) {
+        document.activeElement.blur();
+      }
+    },
+    [onNavigate],
+  );
 
   return (
     <ul
       className={clsx(
-        "flex",
-        orientation === "horizontal"
-          ? "items-center gap-8"
-          : "flex-col items-start gap-6",
+        'flex',
+        orientation === 'horizontal'
+          ? 'items-center gap-8'
+          : 'flex-col items-start gap-6',
       )}
     >
       {navItems.map((item) => {
@@ -33,23 +33,23 @@ function NavLinks({ activeSection, orientation = "horizontal", onNavigate }) {
           <li key={item.id}>
             <a
               href={item.href}
-              onClick={(event) => handleClick(event, item.href)}
-              aria-current={isActive ? "page" : undefined}
+              onClick={(event) => handleClick(event, item)}
+              aria-current={isActive ? 'page' : undefined}
               className={clsx(
-                "relative text-sm font-medium transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-md",
+                'relative rounded-sm text-sm font-medium transition-colors duration-300 focus-visible:outline-none focus-visible:text-primary',
 
                 isActive
-                  ? "text-primary"
-                  : "text-muted-foreground hover:text-foreground",
+                  ? 'text-primary'
+                  : 'text-muted-foreground hover:text-foreground',
               )}
             >
               {item.label}
 
               <span
                 className={clsx(
-                  "absolute -bottom-1 left-0 h-0.5 rounded-full bg-primary transition-all duration-300",
+                  'absolute -bottom-1 left-0 h-0.5 rounded-full bg-primary transition-all duration-300',
 
-                  isActive ? "w-full" : "w-0",
+                  isActive ? 'w-full' : 'w-0',
                 )}
               />
             </a>
@@ -60,4 +60,7 @@ function NavLinks({ activeSection, orientation = "horizontal", onNavigate }) {
   );
 }
 
-export default NavLinks;
+const MemoizedNavLinks = memo(NavLinks);
+MemoizedNavLinks.displayName = 'NavLinks';
+
+export default MemoizedNavLinks;

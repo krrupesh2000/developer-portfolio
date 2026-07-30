@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
-import SectionTitle from "../ui/SectionTitle";
-import Card from "../ui/Card";
-import ProjectCard from "./ProjectCard";
+import SectionTitle from '../ui/SectionTitle';
+import Card from '../ui/Card';
+import ProjectCard from './ProjectCard';
 
-import { getRepositories } from "../../services/github";
+import { getRepositories } from '../../services/github';
 
 function Projects() {
   const [repos, setRepos] = useState([]);
@@ -17,7 +17,7 @@ function Projects() {
         const data = await getRepositories();
         setRepos(data);
       } catch (err) {
-        setError(err.message || "Unable to load projects.");
+        setError(err.message || 'Unable to load projects.');
       } finally {
         setLoading(false);
       }

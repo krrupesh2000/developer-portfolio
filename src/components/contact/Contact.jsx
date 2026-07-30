@@ -1,17 +1,17 @@
-import { FiMail, FiMapPin } from "react-icons/fi";
+import { FiMail, FiMapPin } from 'react-icons/fi';
 
-import SectionTitle from "../ui/SectionTitle";
-import ContactForm from "./ContactForm";
+import SectionTitle from '../ui/SectionTitle';
+import ContactForm from './ContactForm';
 
 function Contact() {
   return (
-    <section id="contact" className="section">
+    <section id="contact" className="section section-viewport">
       <div className="container max-w-3xl">
         <SectionTitle
           align="center"
           subtitle="Have a project, job opportunity, or just want to connect? Fill out the form below and I'll get back to you as soon as possible."
         >
-          Let's Work Together
+          Let&apos;s Work Together
         </SectionTitle>
 
         {/* Contact Form */}

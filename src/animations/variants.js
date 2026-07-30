@@ -1,4 +1,3 @@
-
 /**
  * ============================================================================
  * Animation Variants
@@ -23,22 +22,7 @@ export const fadeUp = {
     y: 0,
     transition: {
       duration: 0.6,
-      ease: "easeOut",
-    },
-  },
-};
-
-export const fadeDown = {
-  hidden: {
-    opacity: 0,
-    y: -24,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut",
+      ease: 'easeOut',
     },
   },
 };
@@ -54,7 +38,7 @@ export const fadeLeft = {
     transition: {
       duration: 0.7,
       delay: 0.15,
-      ease: "easeOut",
+      ease: 'easeOut',
     },
   },
 };
@@ -69,22 +53,7 @@ export const fadeRight = {
     x: 0,
     transition: {
       duration: 0.7,
-      ease: "easeOut",
-    },
-  },
-};
-
-export const scaleIn = {
-  hidden: {
-    opacity: 0,
-    scale: 0.95,
-  },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      duration: 0.5,
-      ease: "easeOut",
+      ease: 'easeOut',
     },
   },
 };

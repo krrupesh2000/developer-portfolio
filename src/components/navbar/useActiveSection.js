@@ -1,19 +1,24 @@
-import { useEffect, useState } from "react";
-import { navItems } from "./navItems";
+import { useEffect, useState } from 'react';
+import { navItems } from './navItems';
 
 const OBSERVER_OPTIONS = {
   root: null,
-  rootMargin: "-35% 0px -55% 0px",
+  rootMargin: '-35% 0px -55% 0px',
   threshold: 0,
 };
 
 export function useActiveSection() {
-  const [activeSection, setActiveSection] = useState(navItems[0].id);
+  const [activeSection, setActiveSection] = useState(null);
 
   useEffect(() => {
     const sections = navItems
       .map((item) => document.getElementById(item.id))
       .filter(Boolean);
+
+    const homeSection = document.getElementById('home');
+    if (homeSection) {
+      sections.push(homeSection);
+    }
 
     if (!sections.length) return;
 
@@ -23,7 +28,14 @@ export function useActiveSection() {
         .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
 
       if (visibleSections.length > 0) {
-        setActiveSection(visibleSections[0].target.id);
+        const activeId = visibleSections[0].target.id;
+        if (activeId === 'home') {
+          setActiveSection(null);
+        } else {
+          setActiveSection(activeId);
+        }
+      } else {
+        setActiveSection(null);
       }
     }, OBSERVER_OPTIONS);
 

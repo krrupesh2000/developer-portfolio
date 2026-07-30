@@ -1,25 +1,25 @@
 const statusConfig = {
   completed: {
-    dot: "bg-green-500",
-    badge: "bg-green-500/10 text-green-600 dark:text-green-400",
-    label: "Completed",
+    dot: 'bg-green-500',
+    badge: 'bg-green-500/10 text-green-600 dark:text-green-400',
+    label: 'Completed',
   },
 
-  "in-progress": {
-    dot: "bg-blue-500",
-    badge: "bg-blue-500/10 text-blue-600 dark:text-blue-400",
-    label: "In Progress",
+  'in-progress': {
+    dot: 'bg-blue-500',
+    badge: 'bg-blue-500/10 text-blue-600 dark:text-blue-400',
+    label: 'In Progress',
   },
 
   planned: {
-    dot: "bg-amber-500",
-    badge: "bg-amber-500/10 text-amber-600 dark:text-amber-400",
-    label: "Planned",
+    dot: 'bg-amber-500',
+    badge: 'bg-amber-500/10 text-amber-600 dark:text-amber-400',
+    label: 'Planned',
   },
 };
 
 function cn(...classes) {
-  return classes.filter(Boolean).join(" ");
+  return classes.filter(Boolean).join(' ');
 }
 
 function JourneyItem({ item, isLast }) {
@@ -31,7 +31,7 @@ function JourneyItem({ item, isLast }) {
       <div className="flex flex-col items-center">
         <span
           className={cn(
-            "h-3.5 w-3.5 rounded-full border-[3px] border-background transition-colors duration-300",
+            'h-3.5 w-3.5 rounded-full border-[3px] border-background transition-colors duration-300',
             config.dot,
           )}
         />
@@ -62,7 +62,7 @@ function JourneyItem({ item, isLast }) {
         <div className="mb-4 flex flex-wrap items-center gap-2">
           <span
             className={cn(
-              "rounded-full px-2.5 py-1 text-xs font-medium",
+              'rounded-full px-2.5 py-1 text-xs font-medium',
               config.badge,
             )}
           >

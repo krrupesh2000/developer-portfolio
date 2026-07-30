@@ -1,5 +1,5 @@
-import { FaGithub, FaLinkedinIn } from "react-icons/fa6";
-import { FiMail } from "react-icons/fi";
+import { FaGithub, FaLinkedinIn } from 'react-icons/fa6';
+import { FiMail } from 'react-icons/fi';
 
 function Footer() {
   return (
@@ -26,7 +26,7 @@ function Footer() {
 
           {/* CTA */}
           <p className="text-sm text-muted-foreground">
-            Let's build something amazing together.
+            Let&apos;s build something amazing together.
           </p>
 
           {/* Social Links */}
@@ -96,7 +96,7 @@ function Footer() {
             </a>
 
             <a
-              href="mailto:your@email.com"
+              href="mailto:krrupesh2000@gmail.com"
               aria-label="Email"
               className="
                 inline-flex
@@ -129,8 +129,8 @@ function Footer() {
           {/* Bottom */}
           <div className="mt-10 w-full border-t border-border/70 pt-6">
             <p className="text-sm text-muted-foreground">
-              &copy; {new Date().getFullYear()} Rupesh Kumar. Designed & Developed
-              with React, Vite & Tailwind CSS.
+              &copy; {new Date().getFullYear()} Rupesh Kumar. Designed &
+              Developed with React, Vite & Tailwind CSS.
             </p>
           </div>
         </div>

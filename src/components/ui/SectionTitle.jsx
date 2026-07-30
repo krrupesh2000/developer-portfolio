@@ -1,8 +1,8 @@
-function SectionTitle({ children, subtitle, align = "center" }) {
+function SectionTitle({ children, subtitle, align = 'center' }) {
   const alignment = {
-    left: "text-left",
-    center: "text-center",
-    right: "text-right",
+    left: 'text-left',
+    center: 'text-center',
+    right: 'text-right',
   };
 
   return (

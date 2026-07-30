@@ -1,33 +1,33 @@
-import { FaGithub, FaLinkedinIn } from "react-icons/fa6";
-import { FiMail } from "react-icons/fi";
+import { FaGithub, FaLinkedinIn } from 'react-icons/fa6';
+import { FiMail } from 'react-icons/fi';
 
 const socialLinks = [
   {
-    name: "GitHub",
-    href: "https://github.com/krrupesh2000",
+    name: 'GitHub',
+    href: 'https://github.com/krrupesh2000',
     icon: FaGithub,
   },
   {
-    name: "LinkedIn",
-    href: "https://www.linkedin.com/in/rupesh-kumar-196420155/",
+    name: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/rupesh-kumar-196420155/',
     icon: FaLinkedinIn,
   },
   {
-    name: "Email",
-    href: "mailto:krrupesh2000@gmail.com",
+    name: 'Email',
+    href: 'mailto:krrupesh2000@gmail.com',
     icon: FiMail,
   },
 ];
 
-export default function SocialLinks({ className = "" }) {
+export default function SocialLinks({ className = '' }) {
   return (
     <div className={`flex items-center gap-4 ${className}`}>
       {socialLinks.map((link) => (
         <a
           key={link.name}
           href={link.href}
-          target={link.href.startsWith("http") ? "_blank" : undefined}
-          rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+          target={link.href.startsWith('http') ? '_blank' : undefined}
+          rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
           aria-label={link.name}
           title={link.name}
           className="

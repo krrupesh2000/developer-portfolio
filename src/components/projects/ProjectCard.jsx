@@ -1,10 +1,10 @@
-import Card from "../ui/Card";
-import { FaGithub } from "react-icons/fa6";
-import { FiExternalLink, FiImage } from "react-icons/fi";
-import { projectMetadata } from "../../data/projectMetadata";
+import Card from '../ui/Card';
+import { FaGithub } from 'react-icons/fa6';
+import { FiExternalLink, FiImage } from 'react-icons/fi';
+import { projectMetadata } from '../../data/projectMetadata';
 
 function ProjectCard({ repo }) {
-  const normalizedName = repo.name.toLowerCase().replace(/[\s_]+/g, "-");
+  const normalizedName = repo.name.toLowerCase().replace(/[\s_]+/g, '-');
 
   const metadata =
     projectMetadata[repo.name] ||
@@ -12,7 +12,7 @@ function ProjectCard({ repo }) {
     projectMetadata[normalizedName] ||
     {};
 
-  const technologies = metadata.technologies || [repo.language || "Unknown"];
+  const technologies = metadata.technologies || [repo.language || 'Unknown'];
 
   const visibleTechnologies = technologies.slice(0, 4);
   const remaining = technologies.length - visibleTechnologies.length;
@@ -85,7 +85,7 @@ function ProjectCard({ repo }) {
 
         {/* Description */}
         <p className="mt-4 line-clamp-3 text-sm leading-6 text-muted-foreground">
-          {repo.description || "No description available."}
+          {repo.description || 'No description available.'}
         </p>
 
         {/* Tech Stack */}

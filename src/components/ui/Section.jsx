@@ -1,13 +1,14 @@
-import { motion } from "motion/react";
+import { motion } from 'motion/react';
+import clsx from 'clsx';
 
-import { staggerContainer, fadeUp } from "../../animations/variants";
-import SectionTitle from "./SectionTitle";
+import { staggerContainer } from '../../animations/variants';
+import SectionTitle from './SectionTitle';
 
-function Section({ id, title, subtitle, children }) {
+function Section({ id, title, subtitle, children, viewport = false }) {
   return (
     <motion.section
       id={id}
-      className="section"
+      className={clsx('section', viewport && 'section-viewport')}
       variants={staggerContainer}
       initial="hidden"
       whileInView="visible"
@@ -17,9 +18,9 @@ function Section({ id, title, subtitle, children }) {
       }}
     >
       <div className="container">
-        <motion.div variants={fadeUp}>
+        <div>
           <SectionTitle subtitle={subtitle}>{title}</SectionTitle>
-        </motion.div>
+        </div>
 
         <div className="section-content">{children}</div>
       </div>

@@ -1,4 +1,4 @@
-function Card({ children, className = "" }) {
+function Card({ children, className = '' }) {
   return (
     <div
       className={`

@@ -1,13 +1,58 @@
-import { motion, useReducedMotion } from "motion/react";
+import { useEffect, useState } from 'react';
+import { motion, useReducedMotion } from 'motion/react';
 
-import Button from "../ui/Button";
-import HeroImage from "../HeroImage";
-import SocialLinks from "../SocialLinks";
+import { getProfile } from '../../services/github';
+import { fallbackProfile } from '../../data/profile';
 
-import { fadeUp, fadeLeft } from "../../animations/variants";
+import Button from '../ui/Button';
+import HeroImage from '../HeroImage';
+import SocialLinks from '../SocialLinks';
+
+import { fadeUp, fadeLeft } from '../../animations/variants';
 
 function Hero() {
+  const [profile, setProfile] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [apiSuccess, setApiSuccess] = useState(true);
+
   const shouldReduceMotion = useReducedMotion();
+
+  useEffect(() => {
+    async function fetchProfile() {
+      try {
+        const data = await getProfile();
+        setProfile(data || fallbackProfile);
+        setApiSuccess(true);
+      } catch (err) {
+        console.error('Error fetching profile, using fallback.', err);
+        setProfile(fallbackProfile);
+        setApiSuccess(false);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchProfile();
+  }, []);
+
+  if (loading) {
+    return (
+      <section
+        id="home"
+        className="flex min-h-screen items-center py-16 sm:py-20 lg:py-24"
+      >
+        <div className="container">
+          <p className="text-center text-lg font-medium text-muted-foreground">
+            Loading profile...
+          </p>
+        </div>
+      </section>
+    );
+  }
+
+  if (!profile) {
+    return null;
+  }
 
   return (
     <section
@@ -16,23 +61,22 @@ function Hero() {
     >
       <div className="container">
         <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(18rem,0.95fr)] lg:gap-14 xl:gap-16">
-
           <motion.div
             className="order-2 text-center lg:order-1 lg:text-left"
             variants={shouldReduceMotion ? undefined : fadeUp}
-            initial={shouldReduceMotion ? false : "hidden"}
-            animate={shouldReduceMotion ? undefined : "visible"}
+            initial={shouldReduceMotion ? false : 'hidden'}
+            animate={shouldReduceMotion ? undefined : 'visible'}
           >
             {/* Greeting */}
 
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-muted-foreground">
-              Hello, I'm
+              Hello, I&apos;m
             </p>
 
             {/* Name */}
 
             <h1 className="mb-4 text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl lg:text-6xl xl:text-7xl">
-              Rupesh Kumar
+              {profile.name}
             </h1>
 
             {/* Role */}
@@ -105,10 +149,13 @@ function Hero() {
           <motion.div
             className="order-1 flex justify-center lg:order-2"
             variants={shouldReduceMotion ? undefined : fadeLeft}
-            initial={shouldReduceMotion ? false : "hidden"}
-            animate={shouldReduceMotion ? undefined : "visible"}
+            initial={shouldReduceMotion ? false : 'hidden'}
+            animate={shouldReduceMotion ? undefined : 'visible'}
           >
-            <HeroImage src={"/hero-img.jpg"} alt={"Rupesh Kumar"} />
+            <HeroImage
+              src={apiSuccess ? profile.avatar_url : '/hero-img.jpg'}
+              alt={profile.name}
+            />
           </motion.div>
         </div>
       </div>

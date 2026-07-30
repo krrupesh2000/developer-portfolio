@@ -34,10 +34,10 @@ function Contact() {
                 </p>
 
                 <a
-                  href="mailto:krrupesh2000@email.com"
+                  href="mailto:krrupesh2000@gmail.com"
                   className="mt-2 inline-block break-all text-primary transition-colors hover:underline"
                 >
-                  krrupesh2000@email.com
+                  krrupesh2000@gmail.com
                 </a>
               </div>
             </div>

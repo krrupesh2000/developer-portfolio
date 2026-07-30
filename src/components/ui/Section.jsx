@@ -7,7 +7,7 @@ function Section({ id, title, subtitle, children }) {
   return (
     <motion.section
       id={id}
-      className="mx-auto max-w-7xl px-6 py-20"
+      className="section"
       variants={staggerContainer}
       initial="hidden"
       whileInView="visible"
@@ -16,11 +16,13 @@ function Section({ id, title, subtitle, children }) {
         amount: 0.2,
       }}
     >
-      <motion.div variants={fadeUp}>
-        <SectionTitle subtitle={subtitle}>{title}</SectionTitle>
-      </motion.div>
+      <div className="container">
+        <motion.div variants={fadeUp}>
+          <SectionTitle subtitle={subtitle}>{title}</SectionTitle>
+        </motion.div>
 
-      <div className="mt-16">{children}</div>
+        <div className="section-content">{children}</div>
+      </div>
     </motion.section>
   );
 }

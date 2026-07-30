@@ -35,7 +35,7 @@ function Hero() {
     return (
       <section
         id="home"
-        className="flex min-h-screen items-center py-8 lg:py-0"
+        className="flex min-h-screen items-center py-16 sm:py-20 lg:py-24"
       >
         <div className="container">
           <p className="text-center text-lg font-medium text-muted-foreground">
@@ -50,7 +50,7 @@ function Hero() {
     return (
       <section
         id="home"
-        className="flex min-h-screen items-center py-8 lg:py-0"
+        className="flex min-h-screen items-center py-16 sm:py-20 lg:py-24"
       >
         <div className="container">
           <p className="text-center text-lg font-medium text-red-500">
@@ -62,9 +62,12 @@ function Hero() {
   }
 
   return (
-    <section id="home" className="flex min-h-screen items-center py-8 lg:py-0">
+    <section
+      id="home"
+      className="flex min-h-screen items-center py-20 sm:py-24 lg:py-28"
+    >
       <div className="container">
-        <div className="grid items-center gap-10 lg:gap-14 xl:gap-16 lg:grid-cols-2">
+        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(18rem,0.95fr)] lg:gap-14 xl:gap-16">
 
           <motion.div
             className="order-2 text-center lg:order-1 lg:text-left"
@@ -80,7 +83,7 @@ function Hero() {
 
             {/* Name */}
 
-            <h1 className="mb-4 text-5xl font-extrabold tracking-tight text-foreground lg:text-7xl">
+            <h1 className="mb-4 text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl lg:text-6xl xl:text-7xl">
               {profile.name}
             </h1>
 
@@ -93,7 +96,7 @@ function Hero() {
             {/* Availability */}
 
             <div
-              className="mb-8 inline-flex items-center gap-2 rounded-full border border-green-500/20 bg-green-500/5 px-4 py-2"
+              className="mb-8 inline-flex max-w-full items-center gap-2 rounded-full border border-green-500/20 bg-green-500/5 px-4 py-2"
               role="status"
               aria-label="Currently available for full-time opportunities"
             >
@@ -102,7 +105,7 @@ function Hero() {
                 aria-hidden="true"
               />
 
-              <span className="text-sm font-medium text-foreground">
+              <span className="text-sm font-medium leading-5 text-foreground">
                 Available for Full-Time Opportunities
               </span>
             </div>

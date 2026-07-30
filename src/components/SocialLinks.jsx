@@ -1,24 +1,21 @@
-import { Mail } from "lucide-react";
-import { SiGithub } from "@icons-pack/react-simple-icons";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa6";
+import { FiMail } from "react-icons/fi";
 
 const socialLinks = [
   {
     name: "GitHub",
     href: "https://github.com/krrupesh2000",
-    type: "brand",
-    icon: SiGithub,
+    icon: FaGithub,
   },
   {
     name: "LinkedIn",
     href: "https://www.linkedin.com/in/rupesh-kumar-196420155/",
-    type: "sprite",
-    symbolId: "social-icon", // Your icons.svg symbol id
+    icon: FaLinkedinIn,
   },
   {
     name: "Email",
     href: "mailto:krrupesh2000@gmail.com",
-    type: "ui",
-    icon: Mail,
+    icon: FiMail,
   },
 ];
 
@@ -52,15 +49,7 @@ focus-visible:ring-primary
 focus-visible:ring-offset-2
 "
         >
-          {link.type === "sprite" ? (
-            <svg className="h-5.5 w-5.5" aria-hidden="true" fill="currentColor">
-              <use href={`/icons.svg#${link.symbolId}`} />
-            </svg>
-          ) : link.type === "brand" ? (
-            <link.icon size={20} aria-hidden="true" />
-          ) : (
-            <link.icon size={20} aria-hidden="true" strokeWidth={2} />
-          )}
+          <link.icon size={20} aria-hidden="true" />
         </a>
       ))}
     </div>

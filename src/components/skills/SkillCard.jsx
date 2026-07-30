@@ -10,17 +10,17 @@ function SkillCard({ skill }) {
       className="
         group
         flex
-        min-h-28
+        min-h-24
         flex-col
         items-center
         justify-center
-        gap-3
-        rounded-2xl
+        gap-2.5
+        rounded-lg
         border
         border-border
         bg-card
-        px-5
-        py-6
+        px-3
+        py-4
         text-center
         transition-default
         hover:-translate-y-1
@@ -31,12 +31,12 @@ function SkillCard({ skill }) {
       <div
         className="
           flex
-          h-12
-          w-12
+          h-10
+          w-10
           shrink-0
           items-center
           justify-center
-          rounded-xl
+          rounded-lg
           bg-primary/10
           text-primary
           transition-default
@@ -47,12 +47,12 @@ function SkillCard({ skill }) {
         <Icon size={22} aria-hidden="true" />
       </div>
 
-      <div className="flex flex-col items-center">
-        <h3 className="text-lg font-semibold leading-none tracking-tight">
+      <div className="flex min-w-0 flex-col items-center">
+        <h3 className="max-w-full text-wrap text-base font-semibold leading-tight">
           {skill.name}
         </h3>
 
-        <p className="mt-2 text-xs font-medium uppercase tracking-[0.18em] text-primary">
+        <p className="mt-1.5 max-w-full text-wrap text-[0.68rem] font-medium uppercase leading-tight tracking-[0.14em] text-primary">
           {skill.category}
         </p>
       </div>

@@ -1,57 +1,141 @@
-import { motion } from "motion/react";
-
-import { fadeUp } from "../../animations/variants";
-import { useActiveSection } from "../navbar/useActiveSection";
-import NavLinks from "../navbar/NavLinks";
-import SocialLinks from "../SocialLinks";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa6";
+import { FiMail } from "react-icons/fi";
 
 function Footer() {
-  const activeSection = useActiveSection();
-
   return (
-    <motion.footer
-      className="border-t border-border"
-      variants={fadeUp}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
-    >
-      <div className="container py-16">
-        {/* Top Section */}
-        <div className="flex flex-col items-center justify-between gap-10 lg:flex-row lg:items-start">
-          {/* Brand */}
-          <div className="text-center lg:text-left">
+    <footer className="mt-24 border-t border-border/70">
+      <div className="mx-auto max-w-7xl px-6 py-12">
+        <div className="flex flex-col items-center text-center">
+          {/* Name */}
+          <h2 className="text-2xl font-bold tracking-tight">Rupesh Kumar</h2>
+
+          {/* Role */}
+          <p className="mt-2 text-sm font-medium text-primary">
+            Full-Stack Developer | MERN
+          </p>
+
+          {/* Description */}
+          <p className="mt-4 max-w-2xl text-sm leading-6 text-muted-foreground">
+            Passionate about building modern, scalable, and user-friendly web
+            applications while continuously learning new technologies and best
+            practices.
+          </p>
+
+          {/* Divider */}
+          <div className="my-8 h-px w-24 bg-border" />
+
+          {/* CTA */}
+          <p className="text-sm text-muted-foreground">
+            Let's build something amazing together.
+          </p>
+
+          {/* Social Links */}
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
             <a
-              href="#hero"
-              className="text-xl font-bold tracking-tight text-foreground transition-colors hover:text-primary"
+              href="https://github.com/krrupesh2000"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              className="
+                inline-flex
+                items-center
+                gap-2
+                rounded-xl
+                border
+                border-border
+                px-5
+                py-3
+                transition-all
+                duration-300
+                ease-out
+                hover:-translate-y-1
+                hover:border-primary/30
+                hover:bg-accent
+                hover:shadow-md
+                focus-visible:outline-none
+                focus-visible:ring-2
+                focus-visible:ring-primary
+                focus-visible:ring-offset-2
+                focus-visible:ring-offset-background
+              "
             >
-              Rupesh Kumar
+              <FaGithub size={18} />
+              <span className="text-sm font-medium">GitHub</span>
             </a>
 
-            <p className="mt-3 max-w-xs text-sm text-muted-foreground">
-              Building modern, scalable, and user-friendly web applications.
-            </p>
+            <a
+              href="https://www.linkedin.com/in/rupesh-kumar-196420155/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="
+                inline-flex
+                items-center
+                gap-2
+                rounded-xl
+                border
+                border-border
+                px-5
+                py-3
+                transition-all
+                duration-300
+                ease-out
+                hover:-translate-y-1
+                hover:border-primary/30
+                hover:bg-accent
+                hover:shadow-md
+                focus-visible:outline-none
+                focus-visible:ring-2
+                focus-visible:ring-primary
+                focus-visible:ring-offset-2
+                focus-visible:ring-offset-background
+              "
+            >
+              <FaLinkedinIn size={18} aria-hidden="true" />
+              <span className="text-sm font-medium">LinkedIn</span>
+            </a>
+
+            <a
+              href="mailto:your@email.com"
+              aria-label="Email"
+              className="
+                inline-flex
+                items-center
+                gap-2
+                rounded-xl
+                border
+                border-border
+                px-5
+                py-3
+                transition-all
+                duration-300
+                ease-out
+                hover:-translate-y-1
+                hover:border-primary/30
+                hover:bg-accent
+                hover:shadow-md
+                focus-visible:outline-none
+                focus-visible:ring-2
+                focus-visible:ring-primary
+                focus-visible:ring-offset-2
+                focus-visible:ring-offset-background
+              "
+            >
+              <FiMail size={18} />
+              <span className="text-sm font-medium">Email</span>
+            </a>
           </div>
 
-          {/* Navigation */}
-          <nav aria-label="Footer">
-            <NavLinks activeSection={activeSection} />
-          </nav>
-
-          {/* Socials */}
-          <SocialLinks />
-        </div>
-
-        {/* Divider */}
-        <div className="my-10 border-t border-border" />
-
-        {/* Bottom */}
-        <div className="flex flex-col items-center justify-between gap-4 text-center text-sm text-muted-foreground sm:flex-row">
-          <p>© {new Date().getFullYear()} Rupesh Kumar. All rights reserved.</p>
-          <p>Built with React, Vite &amp; Tailwind CSS.</p>
+          {/* Bottom */}
+          <div className="mt-10 w-full border-t border-border/70 pt-6">
+            <p className="text-sm text-muted-foreground">
+              &copy; {new Date().getFullYear()} Rupesh Kumar. Designed & Developed
+              with React, Vite & Tailwind CSS.
+            </p>
+          </div>
         </div>
       </div>
-    </motion.footer>
+    </footer>
   );
 }
 

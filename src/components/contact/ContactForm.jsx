@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Loader2, Send } from "lucide-react";
+import { FiLoader, FiSend } from "react-icons/fi";
 
 const SUBJECTS = [
   "Job Opportunity",
@@ -65,7 +65,7 @@ function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="mt-12 space-y-8">
+    <form onSubmit={handleSubmit} className="section-content space-y-8">
       {/* Honeypot */}
       <input
         type="text"
@@ -128,7 +128,7 @@ function ContactForm() {
               />
 
               <div className="rounded-xl border border-border p-4 transition-all duration-300 hover:border-primary/40 hover:bg-accent peer-checked:border-primary peer-checked:bg-primary/10 peer-checked:ring-2 peer-checked:ring-primary/20">
-                <p className="font-medium">{subject}</p>
+                <p className="text-sm font-medium sm:text-base">{subject}</p>
               </div>
             </label>
           ))}
@@ -174,12 +174,12 @@ function ContactForm() {
       >
         {loading ? (
           <>
-            <Loader2 size={18} className="animate-spin" />
+            <FiLoader size={18} className="animate-spin" />
             Sending Message...
           </>
         ) : (
           <>
-            <Send size={18} />
+            <FiSend size={18} />
             Send Message
           </>
         )}

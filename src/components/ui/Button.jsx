@@ -12,6 +12,7 @@ function Button({
   inline-flex
   items-center
   justify-center
+  text-center
   rounded-lg
   px-6
   py-3

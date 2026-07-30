@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import { Menu } from "lucide-react";
+import { FiMenu } from "react-icons/fi";
 import clsx from "clsx";
 
 import NavLinks from "./NavLinks";
@@ -41,10 +41,10 @@ function Navbar() {
       >
         <nav
           aria-label="Primary navigation"
-          className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6"
+          className="container flex h-16 items-center justify-between"
         >
           {/* Logo */}
-          <a href="#hero" className="text-xl font-bold tracking-tight">
+          <a href="#home" className="text-xl font-bold tracking-tight">
             RK
           </a>
 
@@ -75,7 +75,7 @@ function Navbar() {
               onClick={() => setMenuOpen((prev) => !prev)}
               className="rounded-lg p-2 transition hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary lg:hidden"
             >
-              <Menu size={22} />
+              <FiMenu size={22} />
             </button>
           </div>
         </nav>

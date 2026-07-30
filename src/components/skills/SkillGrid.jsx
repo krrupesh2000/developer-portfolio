@@ -6,10 +6,10 @@ function SkillGrid() {
     <div
       className="
         grid
-        gap-6
-        sm:grid-cols-1
-        md:grid-cols-2
-        lg:grid-cols-3
+        grid-cols-[repeat(auto-fit,minmax(min(100%,8.5rem),1fr))]
+        gap-3
+        sm:gap-4
+        lg:grid-cols-[repeat(auto-fit,minmax(9.5rem,1fr))]
         xl:grid-cols-4
       "
     >

@@ -1,4 +1,4 @@
-import { X } from "lucide-react";
+import { FiX } from "react-icons/fi";
 import clsx from "clsx";
 import { useEffect, useRef } from "react";
 
@@ -73,7 +73,7 @@ function MobileMenu({ open, onClose, activeSection, menuButtonRef }) {
   return (
     <div
       className={clsx(
-        "fixed inset-0 z-50 md:hidden",
+        "fixed inset-0 z-50 lg:hidden",
         open ? "pointer-events-auto" : "pointer-events-none",
       )}
       aria-hidden={!open}
@@ -116,7 +116,7 @@ function MobileMenu({ open, onClose, activeSection, menuButtonRef }) {
             aria-label="Close menu"
             className="rounded-lg p-2 transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
           >
-            <X size={22} />
+            <FiX size={22} />
           </button>
         </div>
 

@@ -9,8 +9,8 @@ function HeroImage({ src, alt = "Profile Photo" }) {
         className="
           absolute
           -z-20
-          h-[26rem]
-          w-[26rem]
+          h-[clamp(17rem,70vw,26rem)]
+          w-[clamp(17rem,70vw,26rem)]
           rounded-full
           border
           border-border/30
@@ -24,8 +24,8 @@ function HeroImage({ src, alt = "Profile Photo" }) {
         className="
           absolute
           -z-10
-          h-[24rem]
-          w-[24rem]
+          h-[clamp(16rem,64vw,24rem)]
+          w-[clamp(16rem,64vw,24rem)]
           rounded-full
           bg-primary
           opacity-15
@@ -66,8 +66,8 @@ function HeroImage({ src, alt = "Profile Photo" }) {
             alt={alt}
             draggable={false}
             className="
-              h-72
-              w-72
+              h-[clamp(14rem,62vw,18rem)]
+              w-[clamp(14rem,62vw,18rem)]
               rounded-full
               object-cover
               select-none

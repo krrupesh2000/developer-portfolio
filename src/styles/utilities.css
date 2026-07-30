@@ -1,15 +1,20 @@
 @utility container {
   margin-inline: auto;
   max-width: 80rem; /* 1280px */
-  padding-inline: 1.5rem;
+  width: min(100% - clamp(2rem, 5vw, 3rem), 80rem);
+  padding-inline: 0;
 }
 
 @utility section {
-  padding-block: 6rem;
+  padding-block: clamp(4rem, 7vw, 6rem);
 }
 
 @utility section-sm {
-  padding-block: 4rem;
+  padding-block: clamp(3rem, 5vw, 4rem);
+}
+
+@utility section-content {
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
 }
 
 @utility transition-default {

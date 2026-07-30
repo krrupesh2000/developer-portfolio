@@ -1,6 +1,6 @@
 import Card from "../ui/Card";
-import { ExternalLink, ImageIcon } from "lucide-react";
-import { SiGithub } from "@icons-pack/react-simple-icons";
+import { FaGithub } from "react-icons/fa6";
+import { FiExternalLink, FiImage } from "react-icons/fi";
 import { projectMetadata } from "../../data/projectMetadata";
 
 function ProjectCard({ repo }) {
@@ -62,7 +62,7 @@ function ProjectCard({ repo }) {
         ) : (
           <div className="flex h-44 items-center justify-center bg-muted text-muted-foreground sm:h-48 lg:h-52">
             <div className="text-center">
-              <ImageIcon
+              <FiImage
                 size={36}
                 className="mx-auto opacity-60"
                 aria-hidden="true"
@@ -77,9 +77,9 @@ function ProjectCard({ repo }) {
       </div>
 
       {/* Content */}
-      <div className="flex flex-1 flex-col p-6">
+      <div className="flex flex-1 flex-col p-5 sm:p-6">
         {/* Title */}
-        <h3 className="text-xl font-semibold tracking-tight capitalize lg:text-2xl">
+        <h3 className="break-words text-xl font-semibold tracking-tight capitalize lg:text-2xl">
           {repo.name}
         </h3>
 
@@ -133,7 +133,7 @@ function ProjectCard({ repo }) {
         <div className="mt-auto pt-6">
           <div className="mb-6 border-t border-border" />
 
-          <div className="flex items-center justify-between gap-3">
+          <div className="grid gap-3 sm:grid-cols-2">
             {/* GitHub */}
             <a
               href={repo.html_url}
@@ -143,6 +143,7 @@ function ProjectCard({ repo }) {
               className="
                 inline-flex
                 items-center
+                justify-center
                 gap-2
                 rounded-lg
                 border
@@ -162,7 +163,7 @@ function ProjectCard({ repo }) {
                 focus-visible:ring-offset-background
               "
             >
-              <SiGithub size={16} />
+              <FaGithub size={16} />
               <span>GitHub</span>
             </a>
 
@@ -176,6 +177,7 @@ function ProjectCard({ repo }) {
                 className="
                   inline-flex
                   items-center
+                  justify-center
                   gap-2
                   rounded-lg
                   bg-primary
@@ -196,14 +198,12 @@ function ProjectCard({ repo }) {
                 "
               >
                 <span>Live Demo</span>
-                <ExternalLink size={16} />
+                <FiExternalLink size={16} />
               </a>
             ) : (
-              <div className="flex gap-3">
-                <a className="flex-1 ...">GitHub</a>
-
-                {repo.homepage && <a className="flex-1 ...">Live Demo</a>}
-              </div>
+              <span className="inline-flex items-center justify-center rounded-lg border border-dashed border-border px-4 py-2 text-sm font-medium text-muted-foreground">
+                Demo Soon
+              </span>
             )}
           </div>
         </div>

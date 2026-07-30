@@ -1,4 +1,4 @@
-import { BadgeCheck, BriefcaseBusiness, Code2, MapPin } from "lucide-react";
+import { FiBriefcase, FiCheckCircle, FiCode, FiMapPin } from "react-icons/fi";
 
 import { motion } from "motion/react";
 import { fadeUp, staggerFast } from "../../animations/variants";
@@ -6,22 +6,22 @@ import { fadeUp, staggerFast } from "../../animations/variants";
 function QuickFacts() {
   const facts = [
     {
-      icon: BriefcaseBusiness,
+      icon: FiBriefcase,
       title: "Role",
       value: "Full Stack Developer",
     },
     {
-      icon: MapPin,
+      icon: FiMapPin,
       title: "Location",
       value: "Bihar, India",
     },
     {
-      icon: BadgeCheck,
+      icon: FiCheckCircle,
       title: "Availability",
       value: "Open to Opportunities",
     },
     {
-      icon: Code2,
+      icon: FiCode,
       title: "Current Focus",
       value: "React • MERN • DevOps",
     },

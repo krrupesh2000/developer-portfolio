@@ -11,7 +11,7 @@ import {
   SiGithub,
   SiVscodium,
   SiLinux,
-} from "@icons-pack/react-simple-icons";
+} from "react-icons/si";
 
 export const skills = [
   // Programming

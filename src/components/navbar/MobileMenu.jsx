@@ -134,7 +134,8 @@ function MobileMenu({ open, onClose, activeSection, menuButtonRef }) {
 
         <div className="border-t border-border p-6">
           <a
-            href="/resume.pdf"
+            href="/Rupesh's-resume.pdf"
+            download
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex w-full items-center justify-center rounded-xl bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"

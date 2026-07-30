@@ -57,7 +57,8 @@ function Navbar() {
           <div className="flex items-center gap-3">
             {/* Resume */}
             <a
-              href="/resume.pdf"
+              href="/Rupesh's-resume.pdf"
+              download
               target="_blank"
               rel="noopener noreferrer"
               className="hidden rounded-xl bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition hover:opacity-90 lg:inline-flex"

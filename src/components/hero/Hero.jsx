@@ -1,7 +1,4 @@
-import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
-
-import { getProfile } from "../../services/github";
 
 import Button from "../ui/Button";
 import HeroImage from "../HeroImage";
@@ -10,56 +7,7 @@ import SocialLinks from "../SocialLinks";
 import { fadeUp, fadeLeft } from "../../animations/variants";
 
 function Hero() {
-  const [profile, setProfile] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
   const shouldReduceMotion = useReducedMotion();
-
-  useEffect(() => {
-    async function fetchProfile() {
-      try {
-        const data = await getProfile();
-        setProfile(data);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    fetchProfile();
-  }, []);
-
-  if (loading) {
-    return (
-      <section
-        id="home"
-        className="flex min-h-screen items-center py-16 sm:py-20 lg:py-24"
-      >
-        <div className="container">
-          <p className="text-center text-lg font-medium text-muted-foreground">
-            Loading profile...
-          </p>
-        </div>
-      </section>
-    );
-  }
-
-  if (error) {
-    return (
-      <section
-        id="home"
-        className="flex min-h-screen items-center py-16 sm:py-20 lg:py-24"
-      >
-        <div className="container">
-          <p className="text-center text-lg font-medium text-red-500">
-            {error}
-          </p>
-        </div>
-      </section>
-    );
-  }
 
   return (
     <section
@@ -84,7 +32,7 @@ function Hero() {
             {/* Name */}
 
             <h1 className="mb-4 text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl lg:text-6xl xl:text-7xl">
-              {profile.name}
+              Rupesh Kumar
             </h1>
 
             {/* Role */}
@@ -160,7 +108,7 @@ function Hero() {
             initial={shouldReduceMotion ? false : "hidden"}
             animate={shouldReduceMotion ? undefined : "visible"}
           >
-            <HeroImage src={profile.avatar_url} alt={profile.name} />
+            <HeroImage src={"/hero-img.jpg"} alt={"Rupesh Kumar"} />
           </motion.div>
         </div>
       </div>

@@ -15,7 +15,7 @@ function ContactForm() {
 
   const [message, setMessage] = useState('');
 
-  const maxCharacters = 1000;
+  const maxCharacters = 500;
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -79,7 +79,7 @@ function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="section-content space-y-6 sm:space-y-7"
+      className="section-content space-y-4 sm:space-y-5"
     >
       {/* Honeypot */}
       <input
@@ -106,7 +106,7 @@ function ContactForm() {
           required
           autoComplete="name"
           placeholder="John Doe"
-          className="w-full rounded-xl border border-border bg-background px-4 py-3 transition-colors outline-none focus:border-primary"
+          className="w-full rounded-xl border border-border bg-background px-4 py-2 transition-colors outline-none focus:border-primary"
         />
       </div>
 
@@ -123,7 +123,7 @@ function ContactForm() {
           required
           autoComplete="email"
           placeholder="john@example.com"
-          className="w-full rounded-xl border border-border bg-background px-4 py-3 transition-colors outline-none focus:border-primary"
+          className="w-full rounded-xl border border-border bg-background px-4 py-2 transition-colors outline-none focus:border-primary"
         />
       </div>
 
@@ -131,7 +131,7 @@ function ContactForm() {
       <div>
         <label className="mb-3 block text-sm font-medium">Subject</label>
 
-        <div className="grid gap-3 sm:grid-cols-2">
+        <div className="grid gap-3 grid-cols-2">
           {SUBJECTS.map((subject) => (
             <label key={subject} className="group cursor-pointer">
               <input
@@ -142,8 +142,8 @@ function ContactForm() {
                 className="peer sr-only"
               />
 
-              <div className="rounded-xl border border-border p-3.5 transition-all duration-300 hover:border-primary/40 hover:bg-accent peer-checked:border-primary peer-checked:bg-primary/10 peer-checked:ring-2 peer-checked:ring-primary/20 sm:p-4">
-                <p className="text-sm font-medium sm:text-base">{subject}</p>
+              <div className="rounded-xl border border-border p-2.5 transition-all duration-300 hover:border-primary/40 hover:bg-accent peer-checked:border-primary peer-checked:bg-primary/10 peer-checked:ring-2 peer-checked:ring-primary/20 sm:p-3">
+                <p className="text-sm font-medium sm:text-base text-center">{subject}</p>
               </div>
             </label>
           ))}
@@ -172,21 +172,22 @@ function ContactForm() {
           id="message"
           name="message"
           required
-          rows={6}
+          rows={4}
           maxLength={maxCharacters}
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           placeholder="Tell me about your project, opportunity, or idea..."
-          className="w-full resize-y rounded-xl border border-border bg-background px-4 py-3 leading-7 transition-colors outline-none focus:border-primary"
+          className="w-full resize-y rounded-xl border border-border bg-background px-4 py-2 leading-7 transition-colors outline-none focus:border-primary"
         />
       </div>
 
       {/* Button */}
-      <button
-        type="submit"
-        disabled={loading}
-        className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3 font-medium text-primary-foreground transition-all duration-300 hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-70"
-      >
+      <div className="flex justify-center">
+        <button
+          type="submit"
+          disabled={loading}
+          className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-2 font-medium text-primary-foreground transition-all duration-300 hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-70"
+        >
         {loading ? (
           <>
             <FiLoader size={18} className="animate-spin" />
@@ -198,7 +199,8 @@ function ContactForm() {
             Send Message
           </>
         )}
-      </button>
+        </button>
+      </div>
 
       {/* Status */}
       {status && (

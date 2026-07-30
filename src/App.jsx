@@ -5,7 +5,7 @@ import Skills from './components/skills/Skills';
 import Projects from './components/projects/Projects';
 import Journey from './components/journey/Journey';
 import Contact from './components/contact/Contact';
-import Footer from './components/layout/Footer';
+import Footer from './components/footer/Footer';
 
 function App() {
   return (

@@ -3,8 +3,8 @@ import { FiMail } from 'react-icons/fi';
 
 function Footer() {
   return (
-    <footer className="mt-24 border-t border-border/70">
-      <div className="mx-auto max-w-7xl px-6 py-12">
+    <footer className="mt-12 border-t border-border/70">
+      <div className="mx-auto max-w-7xl px-6 py-6">
         <div className="flex flex-col items-center text-center">
           {/* Name */}
           <h2 className="text-2xl font-bold tracking-tight">Rupesh Kumar</h2>
@@ -22,7 +22,7 @@ function Footer() {
           </p>
 
           {/* Divider */}
-          <div className="my-8 h-px w-24 bg-border" />
+          <div className="my-4 h-px w-24 bg-border" />
 
           {/* CTA */}
           <p className="text-sm text-muted-foreground">
@@ -127,7 +127,7 @@ function Footer() {
           </div>
 
           {/* Bottom */}
-          <div className="mt-10 w-full border-t border-border/70 pt-6">
+          <div className="mt-6 w-full border-t border-border/70 pt-3">
             <p className="text-sm text-muted-foreground">
               &copy; {new Date().getFullYear()} Rupesh Kumar. Designed &
               Developed with React, Vite & Tailwind CSS.

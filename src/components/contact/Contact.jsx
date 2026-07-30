@@ -5,7 +5,7 @@ import ContactForm from './ContactForm';
 
 function Contact() {
   return (
-    <section id="contact" className="section section-viewport">
+    <section id="contact" className="section-sm">
       <div className="container max-w-3xl">
         <SectionTitle
           align="center"
@@ -18,7 +18,7 @@ function Contact() {
         <ContactForm />
 
         {/* Contact Information */}
-        <div className="mt-10 border-t border-border pt-10">
+        <div className="mt-6 border-t border-border pt-6">
           <div className="grid gap-8 sm:grid-cols-2">
             {/* Email */}
             <div className="flex items-start gap-4">

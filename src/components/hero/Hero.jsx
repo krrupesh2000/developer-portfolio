@@ -37,10 +37,7 @@ function Hero() {
 
   if (loading) {
     return (
-      <section
-        id="home"
-        className="flex min-h-screen items-center py-16 sm:py-20 lg:py-24"
-      >
+      <section id="home" className="flex min-h-screen items-center section">
         <div className="container">
           <p className="text-center text-lg font-medium text-muted-foreground">
             Loading profile...
@@ -55,10 +52,7 @@ function Hero() {
   }
 
   return (
-    <section
-      id="home"
-      className="flex min-h-screen items-center py-20 sm:py-24 lg:py-28"
-    >
+    <section id="home" className="flex min-h-screen items-center section">
       <div className="container">
         <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(18rem,0.95fr)] lg:gap-14 xl:gap-16">
           <motion.div

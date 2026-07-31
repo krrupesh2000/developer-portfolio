@@ -42,24 +42,24 @@ function JourneyItem({ item, isLast }) {
       {/* Card */}
       <div
         className="
-          mb-8
+          mb-6
           flex-1
           rounded-2xl
           border
           border-border
           bg-card
-          p-5
+          p-3
           transition-all
           duration-300
           ease-out
           hover:-translate-y-1
           hover:border-primary/30
           hover:shadow-md
-          lg:p-6
+          lg:p-4
         "
       >
         {/* Badges */}
-        <div className="mb-4 flex flex-wrap items-center gap-2">
+        <div className="mb-4 flex flex-wrap items-center justify-center gap-2 lg:justify-start">
           <span
             className={cn(
               'rounded-full px-2.5 py-1 text-xs font-medium',
@@ -81,12 +81,12 @@ function JourneyItem({ item, isLast }) {
         </div>
 
         {/* Title */}
-        <h3 className="text-lg font-semibold tracking-tight lg:text-xl">
+        <h3 className="text-center text-base font-semibold tracking-tight lg:text-left lg:text-lg">
           {item.title}
         </h3>
 
         {/* Description */}
-        <p className="mt-3 text-sm leading-6 text-muted-foreground">
+        <p className="mt-2 text-center text-sm leading-6 text-muted-foreground lg:text-left">
           {item.description}
         </p>
       </div>

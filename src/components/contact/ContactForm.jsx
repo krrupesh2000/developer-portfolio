@@ -143,7 +143,9 @@ function ContactForm() {
               />
 
               <div className="rounded-xl border border-border p-2.5 transition-all duration-300 hover:border-primary/40 hover:bg-accent peer-checked:border-primary peer-checked:bg-primary/10 peer-checked:ring-2 peer-checked:ring-primary/20 sm:p-3">
-                <p className="text-sm font-medium sm:text-base text-center">{subject}</p>
+                <p className="text-sm font-medium text-center">
+                  {subject}
+                </p>
               </div>
             </label>
           ))}
@@ -188,17 +190,17 @@ function ContactForm() {
           disabled={loading}
           className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-2 font-medium text-primary-foreground transition-all duration-300 hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-70"
         >
-        {loading ? (
-          <>
-            <FiLoader size={18} className="animate-spin" />
-            Sending Message...
-          </>
-        ) : (
-          <>
-            <FiSend size={18} />
-            Send Message
-          </>
-        )}
+          {loading ? (
+            <>
+              <FiLoader size={18} className="animate-spin" />
+              Sending Message...
+            </>
+          ) : (
+            <>
+              <FiSend size={18} />
+              Send Message
+            </>
+          )}
         </button>
       </div>
 

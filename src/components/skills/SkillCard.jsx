@@ -52,7 +52,7 @@ function SkillCard({ skill }) {
           {skill.name}
         </h3>
 
-        <p className="mt-1.5 max-w-full text-wrap text-[0.68rem] font-medium uppercase leading-tight tracking-[0.14em] text-primary">
+        <p className="mt-1.5 max-w-full text-wrap text-xs font-medium uppercase leading-tight tracking-[0.14em] text-primary">
           {skill.category}
         </p>
       </div>

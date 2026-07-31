@@ -5,7 +5,7 @@ import ContactForm from './ContactForm';
 
 function Contact() {
   return (
-    <section id="contact" className="section-sm">
+    <section id="contact" className="section">
       <div className="container max-w-3xl">
         <SectionTitle
           align="center"
@@ -27,7 +27,7 @@ function Contact() {
               </div>
 
               <div>
-                <h3 className="font-semibold">Email</h3>
+                <h3 className="font-semibold text-sm">Email</h3>
 
                 <p className="mt-1 text-sm text-muted-foreground">
                   Prefer email? Reach me directly.
@@ -35,7 +35,7 @@ function Contact() {
 
                 <a
                   href="mailto:krrupesh2000@gmail.com"
-                  className="mt-2 inline-block break-all text-primary transition-colors hover:underline"
+                  className="mt-2 text-sm font-medium inline-block break-all text-primary transition-colors hover:underline"
                 >
                   krrupesh2000@gmail.com
                 </a>
@@ -49,13 +49,13 @@ function Contact() {
               </div>
 
               <div>
-                <h3 className="font-semibold">Location</h3>
+                <h3 className="font-semibold text-sm">Location</h3>
 
                 <p className="mt-1 text-sm text-muted-foreground">
                   Open to remote opportunities worldwide.
                 </p>
 
-                <p className="mt-2">Bihar, India</p>
+                <p className="mt-2 text-sm">Bihar, India</p>
               </div>
             </div>
           </div>

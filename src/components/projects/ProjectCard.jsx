@@ -1,18 +1,12 @@
 import Card from '../ui/Card';
 import { FaGithub } from 'react-icons/fa6';
 import { FiExternalLink, FiImage } from 'react-icons/fi';
-import { projectMetadata } from '../../data/projectMetadata';
+import { getProjectMetadata } from '../../data/projectMetadata';
 
 function ProjectCard({ repo }) {
-  const normalizedName = repo.name.toLowerCase().replace(/[\s_]+/g, '-');
-
-  const metadata =
-    projectMetadata[repo.name] ||
-    projectMetadata[repo.name.toLowerCase()] ||
-    projectMetadata[normalizedName] ||
-    {};
-
+  const metadata = getProjectMetadata(repo.name);
   const technologies = metadata.technologies || [repo.language || 'Unknown'];
+  const liveDemoUrl = metadata.homepage || repo.homepage;
 
   const visibleTechnologies = technologies.slice(0, 4);
   const remaining = technologies.length - visibleTechnologies.length;
@@ -42,57 +36,59 @@ function ProjectCard({ repo }) {
       <div className="absolute inset-0 bg-linear-to-br from-primary/5 via-transparent to-accent/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
       {/* Project Image */}
-      <div className="relative overflow-hidden rounded-t-[0.95rem] border-b border-border/75 bg-muted ring-1 ring-inset ring-border/50">
-        {metadata.image ? (
-          <>
-            <div className="absolute inset-0 z-10 bg-linear-to-t from-background/65 via-transparent to-transparent" />
-            <img
-              src={metadata.image}
-              alt={`${repo.name} project screenshot`}
-              loading="lazy"
-              decoding="async"
-              className="
-                aspect-video
-                w-full
-                rounded-t-[0.95rem]
-                object-cover
-                object-center
-                transition-all
-                duration-500
-                group-hover:scale-[1.03]
-              "
-            />
-
-            <div className="absolute inset-0 bg-linear-to-t from-black/55 via-black/10 to-transparent" />
-          </>
-        ) : (
-          <div className="flex aspect-16/10 items-center justify-center bg-muted text-muted-foreground sm:aspect-video lg:aspect-4/3">
-            <div className="text-center">
-              <FiImage
-                size={36}
-                className="mx-auto opacity-60"
-                aria-hidden="true"
+      <div className="relative border-b border-border/75 bg-muted/35 p-2.5">
+        <div className="relative h-44 overflow-hidden rounded-xl border border-border/80 bg-muted shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] ring-1 ring-inset ring-white/5 sm:h-48 lg:h-[11.5rem]">
+          {metadata.image ? (
+            <>
+              <img
+                src={metadata.image}
+                alt={`${repo.name} project screenshot`}
+                loading="lazy"
+                decoding="async"
+                className="
+                  h-full
+                  w-full
+                  object-cover
+                  object-center
+                  transition-transform
+                  duration-500
+                  ease-out
+                  group-hover:scale-[1.035]
+                "
               />
 
-              <p className="mt-3 text-sm font-medium">Preview Coming Soon</p>
+              <div className="absolute inset-0 bg-linear-to-t from-black/45 via-black/5 to-transparent" />
+              <div className="absolute inset-0 rounded-xl ring-1 ring-inset ring-white/10" />
+            </>
+          ) : (
+            <div className="flex h-full items-center justify-center bg-muted text-muted-foreground">
+              <div className="text-center">
+                <FiImage
+                  size={36}
+                  className="mx-auto opacity-60"
+                  aria-hidden="true"
+                />
 
-              <p className="mt-1 text-xs">Screenshot will be added</p>
+                <p className="mt-3 text-sm font-medium">Preview Coming Soon</p>
+
+                <p className="mt-1 text-xs">Screenshot will be added</p>
+              </div>
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
 
       {/* Content */}
-      <div className="relative flex flex-1 flex-col p-3">
-        <h3 className="wrap-break-word text-center text-sm font-semibold tracking-tight capitalize text-foreground sm:text-center md:text-center lg:text-left lg:text-base">
+      <div className="relative flex flex-1 flex-col p-4 sm:p-5">
+        <h3 className="wrap-break-word text-center text-base font-semibold tracking-tight capitalize text-foreground sm:text-center md:text-center lg:text-left">
           {repo.name}
         </h3>
 
-        <p className="mt-2 line-clamp-2 text-center text-xs leading-5 text-muted-foreground sm:text-center md:text-center lg:text-left">
+        <p className="mt-2 line-clamp-3 text-center text-sm leading-6 text-muted-foreground sm:text-center md:text-center lg:text-left">
           {repo.description || 'No description available.'}
         </p>
 
-        <div className="mt-3 flex flex-wrap justify-center gap-1.5 sm:justify-center md:justify-center lg:justify-start">
+        <div className="mt-4 flex flex-wrap justify-center gap-2 sm:justify-center md:justify-center lg:justify-start">
           {visibleTechnologies.map((tech) => (
             <span
               key={tech}
@@ -101,9 +97,9 @@ function ProjectCard({ repo }) {
                 border
                 border-primary/20
                 bg-primary/10
-                px-2
-                py-0.5
-                text-[10px]
+                px-2.5
+                py-1
+                text-[11px]
                 font-medium
                 text-primary
                 transition-colors
@@ -122,9 +118,9 @@ function ProjectCard({ repo }) {
                 border
                 border-dashed
                 border-border
-                px-2
-                py-0.5
-                text-[10px]
+                px-2.5
+                py-1
+                text-[11px]
                 text-muted-foreground
               "
             >
@@ -133,8 +129,8 @@ function ProjectCard({ repo }) {
           )}
         </div>
 
-        <div className="mt-auto pt-4">
-          <div className="mb-3 border-t border-border/70" />
+        <div className="mt-auto pt-5">
+          <div className="mb-4 border-t border-border/70" />
 
           <div className="grid gap-2 sm:grid-cols-2">
             <a
@@ -170,9 +166,9 @@ function ProjectCard({ repo }) {
               <span>GitHub</span>
             </a>
 
-            {repo.homepage ? (
+            {liveDemoUrl ? (
               <a
-                href={repo.homepage}
+                href={liveDemoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Open live demo of ${repo.name}`}

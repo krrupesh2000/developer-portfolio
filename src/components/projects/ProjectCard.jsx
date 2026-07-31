@@ -21,46 +21,52 @@ function ProjectCard({ repo }) {
     <Card
       className="
         group
+        relative
         flex
         h-full
         flex-col
         overflow-hidden
-        rounded-2xl
+        rounded-[1.2rem]
         border
-        border-border
-        bg-card
+        border-border/80
+        bg-card/95
+        p-0
+        shadow-[0_12px_30px_-22px_rgba(15,23,42,0.55)]
         transition-all
         duration-300
         hover:-translate-y-1
-        hover:border-primary/30
-        hover:shadow-lg
+        hover:border-primary/40
+        hover:shadow-[0_20px_42px_-24px_rgba(59,130,246,0.45)]
       "
     >
+      <div className="absolute inset-0 bg-linear-to-br from-primary/5 via-transparent to-accent/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+
       {/* Project Image */}
-      <div className="relative overflow-hidden border-b">
+      <div className="relative overflow-hidden rounded-t-[0.95rem] border-b border-border/75 bg-muted ring-1 ring-inset ring-border/50">
         {metadata.image ? (
           <>
+            <div className="absolute inset-0 z-10 bg-linear-to-t from-background/65 via-transparent to-transparent" />
             <img
               src={metadata.image}
               alt={`${repo.name} project screenshot`}
               loading="lazy"
               decoding="async"
               className="
-                h-44
+                aspect-video
                 w-full
+                rounded-t-[0.95rem]
                 object-cover
-                transition-transform
+                object-center
+                transition-all
                 duration-500
-                group-hover:scale-105
-                sm:h-48
-                lg:h-52
+                group-hover:scale-[1.03]
               "
             />
 
-            <div className="absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/10" />
+            <div className="absolute inset-0 bg-linear-to-t from-black/55 via-black/10 to-transparent" />
           </>
         ) : (
-          <div className="flex h-44 items-center justify-center bg-muted text-muted-foreground sm:h-48 lg:h-52">
+          <div className="flex aspect-16/10 items-center justify-center bg-muted text-muted-foreground sm:aspect-video lg:aspect-4/3">
             <div className="text-center">
               <FiImage
                 size={36}
@@ -77,19 +83,16 @@ function ProjectCard({ repo }) {
       </div>
 
       {/* Content */}
-      <div className="flex flex-1 flex-col p-5 sm:p-6">
-        {/* Title */}
-        <h3 className="break-words text-xl font-semibold tracking-tight capitalize lg:text-2xl">
+      <div className="relative flex flex-1 flex-col p-3">
+        <h3 className="wrap-break-word text-center text-sm font-semibold tracking-tight capitalize text-foreground sm:text-center md:text-center lg:text-left lg:text-base">
           {repo.name}
         </h3>
 
-        {/* Description */}
-        <p className="mt-4 line-clamp-3 text-sm leading-6 text-muted-foreground">
+        <p className="mt-2 line-clamp-2 text-center text-xs leading-5 text-muted-foreground sm:text-center md:text-center lg:text-left">
           {repo.description || 'No description available.'}
         </p>
 
-        {/* Tech Stack */}
-        <div className="mt-6 flex flex-wrap gap-2">
+        <div className="mt-3 flex flex-wrap justify-center gap-1.5 sm:justify-center md:justify-center lg:justify-start">
           {visibleTechnologies.map((tech) => (
             <span
               key={tech}
@@ -98,12 +101,13 @@ function ProjectCard({ repo }) {
                 border
                 border-primary/20
                 bg-primary/10
-                px-2.5
-                py-1
-                text-xs
+                px-2
+                py-0.5
+                text-[10px]
                 font-medium
                 text-primary
                 transition-colors
+                duration-300
                 hover:bg-primary/20
               "
             >
@@ -118,9 +122,9 @@ function ProjectCard({ repo }) {
                 border
                 border-dashed
                 border-border
-                px-2.5
-                py-1
-                text-xs
+                px-2
+                py-0.5
+                text-[10px]
                 text-muted-foreground
               "
             >
@@ -129,12 +133,10 @@ function ProjectCard({ repo }) {
           )}
         </div>
 
-        {/* Footer */}
-        <div className="mt-auto pt-6">
-          <div className="mb-6 border-t border-border" />
+        <div className="mt-auto pt-4">
+          <div className="mb-3 border-t border-border/70" />
 
-          <div className="grid gap-3 sm:grid-cols-2">
-            {/* GitHub */}
+          <div className="grid gap-2 sm:grid-cols-2">
             <a
               href={repo.html_url}
               target="_blank"
@@ -148,13 +150,14 @@ function ProjectCard({ repo }) {
                 rounded-lg
                 border
                 border-border
-                px-4
+                bg-background/70
+                px-3
                 py-2
-                text-sm
+                text-xs
                 font-medium
                 transition-all
                 duration-300
-                hover:border-primary/30
+                hover:border-primary/40
                 hover:bg-accent
                 focus-visible:outline-none
                 focus-visible:ring-2
@@ -167,7 +170,6 @@ function ProjectCard({ repo }) {
               <span>GitHub</span>
             </a>
 
-            {/* Live Demo */}
             {repo.homepage ? (
               <a
                 href={repo.homepage}
@@ -181,9 +183,9 @@ function ProjectCard({ repo }) {
                   gap-2
                   rounded-lg
                   bg-primary
-                  px-4
+                  px-3
                   py-2
-                  text-sm
+                  text-xs
                   font-medium
                   text-primary-foreground
                   transition-all
@@ -201,7 +203,7 @@ function ProjectCard({ repo }) {
                 <FiExternalLink size={16} />
               </a>
             ) : (
-              <span className="inline-flex items-center justify-center rounded-lg border border-dashed border-border px-4 py-2 text-sm font-medium text-muted-foreground">
+              <span className="inline-flex items-center justify-center rounded-lg border border-dashed border-border px-3 py-2 text-xs font-medium text-muted-foreground">
                 Demo Soon
               </span>
             )}

@@ -7,15 +7,15 @@ function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-6">
         <div className="flex flex-col items-center text-center">
           {/* Name */}
-          <h2 className="text-2xl font-bold tracking-tight">Rupesh Kumar</h2>
+          <h2 className="type-subtitle font-bold">Rupesh Kumar</h2>
 
           {/* Role */}
-          <p className="mt-2 text-sm font-medium text-primary">
+          <p className="type-small mt-2 font-medium text-primary">
             Full-Stack Developer | MERN
           </p>
 
           {/* Description */}
-          <p className="mt-4 max-w-2xl text-sm leading-6 text-muted-foreground">
+          <p className="type-small mt-4 max-w-2xl text-muted-foreground">
             Passionate about building modern, scalable, and user-friendly web
             applications while continuously learning new technologies and best
             practices.
@@ -25,7 +25,7 @@ function Footer() {
           <div className="my-4 h-px w-24 bg-border" />
 
           {/* CTA */}
-          <p className="text-sm text-muted-foreground">
+          <p className="type-small text-muted-foreground">
             Let&apos;s build something amazing together.
           </p>
 
@@ -60,7 +60,7 @@ function Footer() {
               "
             >
               <FaGithub size={18} />
-              <span className="text-sm font-medium">GitHub</span>
+              <span className="type-label font-medium">GitHub</span>
             </a>
 
             <a
@@ -92,7 +92,7 @@ function Footer() {
               "
             >
               <FaLinkedinIn size={18} aria-hidden="true" />
-              <span className="text-sm font-medium">LinkedIn</span>
+              <span className="type-label font-medium">LinkedIn</span>
             </a>
 
             <a
@@ -122,13 +122,13 @@ function Footer() {
               "
             >
               <FiMail size={18} />
-              <span className="text-sm font-medium">Email</span>
+              <span className="type-label font-medium">Email</span>
             </a>
           </div>
 
           {/* Bottom */}
           <div className="mt-6 w-full border-t border-border/70 pt-3">
-            <p className="text-sm text-muted-foreground">
+            <p className="type-small text-muted-foreground">
               &copy; {new Date().getFullYear()} Rupesh Kumar. Designed &
               Developed with React, Vite & Tailwind CSS.
             </p>

@@ -61,7 +61,7 @@ function Navbar() {
           <a
             href="#home"
             onClick={handleLogoClick}
-            className="text-xl font-bold tracking-tight"
+            className="type-subtitle font-bold"
           >
             RK
           </a>
@@ -78,7 +78,7 @@ function Navbar() {
               href="/Rupesh's-resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden rounded-xl bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition hover:opacity-90 lg:inline-flex"
+              className="type-label hidden rounded-xl bg-primary px-5 py-2.5 font-medium text-primary-foreground transition hover:opacity-90 lg:inline-flex"
             >
               Resume
             </a>

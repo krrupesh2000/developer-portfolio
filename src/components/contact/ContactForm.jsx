@@ -95,7 +95,7 @@ function ContactForm() {
 
       {/* Name */}
       <div>
-        <label htmlFor="name" className="mb-2 block text-sm font-medium">
+        <label htmlFor="name" className="type-label mb-2 block font-medium">
           Name
         </label>
 
@@ -112,7 +112,7 @@ function ContactForm() {
 
       {/* Email */}
       <div>
-        <label htmlFor="email" className="mb-2 block text-sm font-medium">
+        <label htmlFor="email" className="type-label mb-2 block font-medium">
           Email
         </label>
 
@@ -129,7 +129,7 @@ function ContactForm() {
 
       {/* Subject */}
       <div>
-        <label className="mb-3 block text-sm font-medium">Subject</label>
+        <label className="type-label mb-3 block font-medium">Subject</label>
 
         <div className="grid gap-3 grid-cols-2">
           {SUBJECTS.map((subject) => (
@@ -143,7 +143,7 @@ function ContactForm() {
               />
 
               <div className="rounded-xl border border-border p-2.5 transition-all duration-300 hover:border-primary/40 hover:bg-accent peer-checked:border-primary peer-checked:bg-primary/10 peer-checked:ring-2 peer-checked:ring-primary/20 sm:p-3">
-                <p className="text-sm font-medium text-center">
+                <p className="type-label text-center font-medium">
                   {subject}
                 </p>
               </div>
@@ -155,12 +155,12 @@ function ContactForm() {
       {/* Message */}
       <div>
         <div className="mb-2 flex items-center justify-between">
-          <label htmlFor="message" className="text-sm font-medium">
+          <label htmlFor="message" className="type-label font-medium">
             Message
           </label>
 
           <span
-            className={`text-xs ${
+            className={`type-caption ${
               message.length > maxCharacters * 0.9
                 ? 'text-orange-500'
                 : 'text-muted-foreground'
@@ -179,7 +179,7 @@ function ContactForm() {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           placeholder="Tell me about your project, opportunity, or idea..."
-          className="w-full resize-y rounded-xl border border-border bg-background px-4 py-2 leading-7 transition-colors outline-none focus:border-primary"
+          className="type-body w-full resize-y rounded-xl border border-border bg-background px-4 py-2 transition-colors outline-none focus:border-primary"
         />
       </div>
 
@@ -188,7 +188,7 @@ function ContactForm() {
         <button
           type="submit"
           disabled={loading}
-          className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-2 font-medium text-primary-foreground transition-all duration-300 hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-70"
+          className="type-label inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-2 font-medium text-primary-foreground transition-all duration-300 hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-70"
         >
           {loading ? (
             <>
@@ -214,9 +214,9 @@ function ContactForm() {
               : 'border-red-500/20 bg-red-500/10 text-red-700 dark:text-red-400'
           }`}
         >
-          <h4 className="font-semibold">{status.title}</h4>
+          <h4 className="type-label font-semibold">{status.title}</h4>
 
-          <p className="mt-1 text-sm">{status.message}</p>
+          <p className="type-small mt-1">{status.message}</p>
         </div>
       )}
     </form>

@@ -15,6 +15,7 @@ function Button({
   rounded-lg
   px-6
   py-3
+  type-label
   font-medium
   transition-default
   hover:scale-[1.02]

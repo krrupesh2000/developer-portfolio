@@ -48,11 +48,11 @@ function SkillCard({ skill }) {
       </div>
 
       <div className="flex min-w-0 flex-col items-center">
-        <h3 className="max-w-full text-wrap text-base font-semibold leading-tight">
+        <h3 className="type-card-title max-w-full text-wrap font-semibold">
           {skill.name}
         </h3>
 
-        <p className="mt-1.5 max-w-full text-wrap text-xs font-medium uppercase leading-tight tracking-[0.14em] text-primary">
+        <p className="type-eyebrow mt-1.5 max-w-full text-wrap font-medium uppercase text-primary">
           {skill.category}
         </p>
       </div>

@@ -39,7 +39,7 @@ function Hero() {
     return (
       <section id="home" className="flex min-h-screen items-center section">
         <div className="container">
-          <p className="text-center text-lg font-medium text-muted-foreground">
+          <p className="type-subtitle text-center font-medium text-muted-foreground">
             Loading profile...
           </p>
         </div>
@@ -63,19 +63,19 @@ function Hero() {
           >
             {/* Greeting */}
 
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-muted-foreground">
+            <p className="type-eyebrow mb-3 font-semibold uppercase text-muted-foreground">
               Hello, I&apos;m
             </p>
 
             {/* Name */}
 
-            <h1 className="mb-4 text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl lg:text-6xl xl:text-7xl">
+            <h1 className="type-hero-title mb-4 font-extrabold text-foreground">
               {profile.name}
             </h1>
 
             {/* Role */}
 
-            <h2 className="mb-6 text-2xl font-semibold text-primary lg:text-3xl">
+            <h2 className="type-subtitle mb-6 font-semibold text-primary">
               Full Stack MERN Developer
             </h2>
 
@@ -91,14 +91,14 @@ function Hero() {
                 aria-hidden="true"
               />
 
-              <span className="text-sm font-medium leading-5 text-foreground">
+              <span className="type-label font-medium text-foreground">
                 Available for Full-Time Opportunities
               </span>
             </div>
 
             {/* Description */}
 
-            <p className="mb-10 mx-auto max-w-xl text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8 lg:mx-0 lg:max-w-2xl">
+            <p className="type-body mb-10 mx-auto max-w-xl text-muted-foreground lg:mx-0 lg:max-w-2xl">
               I build modern, scalable, and user-focused web applications using
               React, Node.js, Express, MongoDB, and modern development
               practices. Passionate about clean architecture, performance,

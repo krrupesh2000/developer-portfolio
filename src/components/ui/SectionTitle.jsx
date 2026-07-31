@@ -7,12 +7,12 @@ function SectionTitle({ children, subtitle, align = 'center' }) {
 
   return (
     <div className={`mb-10 ${alignment[align]}`}>
-      <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+      <h2 className="type-section-title font-bold text-foreground">
         {children}
       </h2>
 
       {subtitle && (
-        <p className="mx-auto mt-3 max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg">
+        <p className="type-body mx-auto mt-3 max-w-3xl text-muted-foreground">
           {subtitle}
         </p>
       )}

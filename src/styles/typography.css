@@ -1,0 +1,95 @@
+:root {
+  --font-sans:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+
+  --type-xs: clamp(0.75rem, 0.72rem + 0.15vw, 0.8125rem);
+  --type-sm: clamp(0.875rem, 0.84rem + 0.17vw, 0.9375rem);
+  --type-base: clamp(1rem, 0.95rem + 0.22vw, 1.0625rem);
+  --type-lg: clamp(1.125rem, 1.03rem + 0.36vw, 1.25rem);
+  --type-xl: clamp(1.25rem, 1.12rem + 0.55vw, 1.5rem);
+  --type-2xl: clamp(1.5rem, 1.27rem + 0.94vw, 1.875rem);
+  --type-3xl: clamp(1.875rem, 1.48rem + 1.55vw, 2.5rem);
+  --type-4xl: clamp(2.35rem, 1.52rem + 3.2vw, 4.5rem);
+
+  --leading-tight: 1.12;
+  --leading-title: 1.2;
+  --leading-body: 1.7;
+  --tracking-caps: 0.16em;
+}
+
+html {
+  font-size: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--type-base);
+  line-height: var(--leading-body);
+  letter-spacing: 0;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: var(--leading-title);
+  letter-spacing: 0;
+}
+
+.type-hero-title {
+  font-size: var(--type-4xl);
+  line-height: var(--leading-tight);
+  letter-spacing: 0;
+}
+
+.type-section-title {
+  font-size: var(--type-3xl);
+  line-height: var(--leading-tight);
+  letter-spacing: 0;
+}
+
+.type-subtitle {
+  font-size: var(--type-xl);
+  line-height: 1.35;
+}
+
+.type-card-title {
+  font-size: var(--type-lg);
+  line-height: 1.3;
+}
+
+.type-body {
+  font-size: var(--type-base);
+  line-height: var(--leading-body);
+}
+
+.type-small {
+  font-size: var(--type-sm);
+  line-height: 1.55;
+}
+
+.type-caption {
+  font-size: var(--type-xs);
+  line-height: 1.35;
+}
+
+.type-label {
+  font-size: var(--type-sm);
+  line-height: 1.35;
+}
+
+.type-badge {
+  font-size: var(--type-xs);
+  line-height: 1.2;
+}
+
+.type-eyebrow {
+  font-size: var(--type-xs);
+  line-height: 1.2;
+  letter-spacing: var(--tracking-caps);
+}

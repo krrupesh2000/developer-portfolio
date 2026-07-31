@@ -36,7 +36,7 @@ function NavLinks({ activeSection, orientation = 'horizontal', onNavigate }) {
               onClick={(event) => handleClick(event, item)}
               aria-current={isActive ? 'page' : undefined}
               className={clsx(
-                'relative rounded-sm text-sm font-medium transition-colors duration-300 focus-visible:outline-none focus-visible:text-primary',
+                'type-label relative rounded-sm font-medium transition-colors duration-300 focus-visible:outline-none focus-visible:text-primary',
 
                 isActive
                   ? 'text-primary'

@@ -27,15 +27,15 @@ function Contact() {
               </div>
 
               <div>
-                <h3 className="font-semibold text-sm">Email</h3>
+                <h3 className="type-label font-semibold">Email</h3>
 
-                <p className="mt-1 text-sm text-muted-foreground">
+                <p className="type-small mt-1 text-muted-foreground">
                   Prefer email? Reach me directly.
                 </p>
 
                 <a
                   href="mailto:krrupesh2000@gmail.com"
-                  className="mt-2 text-sm font-medium inline-block break-all text-primary transition-colors hover:underline"
+                  className="type-small mt-2 inline-block break-all font-medium text-primary transition-colors hover:underline"
                 >
                   krrupesh2000@gmail.com
                 </a>
@@ -49,13 +49,13 @@ function Contact() {
               </div>
 
               <div>
-                <h3 className="font-semibold text-sm">Location</h3>
+                <h3 className="type-label font-semibold">Location</h3>
 
-                <p className="mt-1 text-sm text-muted-foreground">
+                <p className="type-small mt-1 text-muted-foreground">
                   Open to remote opportunities worldwide.
                 </p>
 
-                <p className="mt-2 text-sm">Bihar, India</p>
+                <p className="type-small mt-2">Bihar, India</p>
               </div>
             </div>
           </div>

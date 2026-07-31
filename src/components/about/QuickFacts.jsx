@@ -76,11 +76,11 @@ function QuickFacts() {
             </div>
 
             <div className="min-w-0">
-              <p className="break-words text-sm font-semibold text-foreground sm:text-base">
+              <p className="type-label break-words font-semibold text-foreground">
                 {fact.value}
               </p>
 
-              <p className="mt-1 text-sm text-muted-foreground">{fact.title}</p>
+              <p className="type-small mt-1 text-muted-foreground">{fact.title}</p>
             </div>
           </motion.div>
         );

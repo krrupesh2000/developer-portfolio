@@ -108,7 +108,7 @@ function MobileMenu({ open, onClose, activeSection, menuButtonRef }) {
         {/* Header */}
 
         <div className="flex items-center justify-between border-b border-border px-6 py-5">
-          <h2 className="text-lg font-semibold">Navigation</h2>
+          <h2 className="type-card-title font-semibold">Navigation</h2>
 
           <button
             type="button"
@@ -136,7 +136,7 @@ function MobileMenu({ open, onClose, activeSection, menuButtonRef }) {
           <a
             href="/resume.pdf"
             download
-            className="inline-flex w-full items-center justify-center rounded-xl bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+            className="type-label inline-flex w-full items-center justify-center rounded-xl bg-primary px-5 py-3 font-medium text-primary-foreground transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
           >
             Download Resume
           </a>

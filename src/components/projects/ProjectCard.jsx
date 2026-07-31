@@ -69,9 +69,9 @@ function ProjectCard({ repo }) {
                   aria-hidden="true"
                 />
 
-                <p className="mt-3 text-sm font-medium">Preview Coming Soon</p>
+                <p className="type-small mt-3 font-medium">Preview Coming Soon</p>
 
-                <p className="mt-1 text-xs">Screenshot will be added</p>
+                <p className="type-caption mt-1">Screenshot will be added</p>
               </div>
             </div>
           )}
@@ -80,11 +80,11 @@ function ProjectCard({ repo }) {
 
       {/* Content */}
       <div className="relative flex flex-1 flex-col p-4 sm:p-5">
-        <h3 className="wrap-break-word text-center text-base font-semibold tracking-tight capitalize text-foreground sm:text-center md:text-center lg:text-left">
+        <h3 className="type-card-title wrap-break-word text-center font-semibold capitalize text-foreground sm:text-center md:text-center lg:text-left">
           {repo.name}
         </h3>
 
-        <p className="mt-2 line-clamp-3 text-center text-sm leading-6 text-muted-foreground sm:text-center md:text-center lg:text-left">
+        <p className="type-small mt-2 line-clamp-3 text-center text-muted-foreground sm:text-center md:text-center lg:text-left">
           {repo.description || 'No description available.'}
         </p>
 
@@ -99,7 +99,7 @@ function ProjectCard({ repo }) {
                 bg-primary/10
                 px-2.5
                 py-1
-                text-[11px]
+                type-badge
                 font-medium
                 text-primary
                 transition-colors
@@ -120,7 +120,7 @@ function ProjectCard({ repo }) {
                 border-border
                 px-2.5
                 py-1
-                text-[11px]
+                type-badge
                 text-muted-foreground
               "
             >
@@ -149,7 +149,7 @@ function ProjectCard({ repo }) {
                 bg-background/70
                 px-3
                 py-2
-                text-xs
+                type-badge
                 font-medium
                 transition-all
                 duration-300
@@ -181,7 +181,7 @@ function ProjectCard({ repo }) {
                   bg-primary
                   px-3
                   py-2
-                  text-xs
+                  type-badge
                   font-medium
                   text-primary-foreground
                   transition-all
@@ -199,7 +199,7 @@ function ProjectCard({ repo }) {
                 <FiExternalLink size={16} />
               </a>
             ) : (
-              <span className="inline-flex items-center justify-center rounded-lg border border-dashed border-border px-3 py-2 text-xs font-medium text-muted-foreground">
+              <span className="type-badge inline-flex items-center justify-center rounded-lg border border-dashed border-border px-3 py-2 font-medium text-muted-foreground">
                 Demo Soon
               </span>
             )}

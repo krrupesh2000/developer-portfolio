@@ -62,31 +62,31 @@ function JourneyItem({ item, isLast }) {
         <div className="mb-4 flex flex-wrap items-center justify-center gap-2 lg:justify-start">
           <span
             className={cn(
-              'rounded-full px-2.5 py-1 text-xs font-medium',
+              'type-badge rounded-full px-2.5 py-1 font-medium',
               config.badge,
             )}
           >
             {config.label}
           </span>
 
-          <span className="rounded-full bg-muted px-2.5 py-1 text-xs text-muted-foreground">
+          <span className="type-badge rounded-full bg-muted px-2.5 py-1 text-muted-foreground">
             {item.category}
           </span>
 
           {item.focus && (
-            <span className="rounded-full bg-primary/10 px-2.5 py-1 text-xs font-medium text-primary">
+            <span className="type-badge rounded-full bg-primary/10 px-2.5 py-1 font-medium text-primary">
               {item.focus}
             </span>
           )}
         </div>
 
         {/* Title */}
-        <h3 className="text-center text-base font-semibold tracking-tight lg:text-left lg:text-lg">
+        <h3 className="type-card-title text-center font-semibold lg:text-left">
           {item.title}
         </h3>
 
         {/* Description */}
-        <p className="mt-2 text-center text-sm leading-6 text-muted-foreground lg:text-left">
+        <p className="type-small mt-2 text-center text-muted-foreground lg:text-left">
           {item.description}
         </p>
       </div>

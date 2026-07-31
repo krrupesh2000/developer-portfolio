@@ -83,18 +83,18 @@ function Projects() {
         {/* Error */}
         {!loading && error && (
           <Card className="section-content rounded-2xl border border-destructive/20 p-10 text-center">
-            <h3 className="text-lg font-semibold">Unable to load projects</h3>
+            <h3 className="type-card-title font-semibold">Unable to load projects</h3>
 
-            <p className="mt-2 text-sm text-muted-foreground">{error}</p>
+            <p className="type-small mt-2 text-muted-foreground">{error}</p>
           </Card>
         )}
 
         {/* Empty */}
         {!loading && !error && repos.length === 0 && (
           <Card className="section-content rounded-2xl p-10 text-center">
-            <h3 className="text-lg font-semibold">No projects available</h3>
+            <h3 className="type-card-title font-semibold">No projects available</h3>
 
-            <p className="mt-2 text-sm text-muted-foreground">
+            <p className="type-small mt-2 text-muted-foreground">
               Projects will appear here once they are published.
             </p>
           </Card>

@@ -13,7 +13,6 @@ import { fadeUp, fadeLeft } from '../../animations/variants';
 function Hero() {
   const [profile, setProfile] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [apiSuccess, setApiSuccess] = useState(true);
 
   const shouldReduceMotion = useReducedMotion();
 
@@ -22,11 +21,9 @@ function Hero() {
       try {
         const data = await getProfile();
         setProfile(data || fallbackProfile);
-        setApiSuccess(true);
       } catch (err) {
         console.error('Error fetching profile, using fallback.', err);
         setProfile(fallbackProfile);
-        setApiSuccess(false);
       } finally {
         setLoading(false);
       }
@@ -147,7 +144,7 @@ function Hero() {
             animate={shouldReduceMotion ? undefined : 'visible'}
           >
             <HeroImage
-              src={apiSuccess ? profile.avatar_url : '/hero-img.jpg'}
+              src={profile.avatar_url || fallbackProfile.avatar_url}
               alt={profile.name}
             />
           </motion.div>

@@ -6,7 +6,7 @@ import { getProjectMetadata } from '../../data/projectMetadata';
 function ProjectCard({ repo }) {
   const metadata = getProjectMetadata(repo.name);
   const technologies = metadata.technologies || [repo.language || 'Unknown'];
-  const liveDemoUrl = metadata.homepage || repo.homepage;
+  const liveDemoUrl = repo.homepage || metadata.homepage;
 
   const visibleTechnologies = technologies.slice(0, 4);
   const remaining = technologies.length - visibleTechnologies.length;

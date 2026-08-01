@@ -76,6 +76,7 @@ function Navbar() {
             {/* Resume */}
             <a
               href="/Rupesh's-resume.pdf"
+              download
               target="_blank"
               rel="noopener noreferrer"
               className="type-label hidden rounded-xl bg-primary px-5 py-2.5 font-medium text-primary-foreground transition hover:opacity-90 lg:inline-flex"

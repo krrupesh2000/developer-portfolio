@@ -17,19 +17,27 @@ function Hero() {
   const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
+    const controller = new AbortController();
+
     async function fetchProfile() {
       try {
-        const data = await getProfile();
+        const data = await getProfile({ signal: controller.signal });
         setProfile(data || fallbackProfile);
       } catch (err) {
-        console.error('Error fetching profile, using fallback.', err);
-        setProfile(fallbackProfile);
+        if (err.name !== 'AbortError') {
+          console.error('Error fetching profile, using fallback.', err);
+          setProfile(fallbackProfile);
+        }
       } finally {
         setLoading(false);
       }
     }
 
     fetchProfile();
+
+    return () => {
+      controller.abort();
+    };
   }, []);
 
   if (loading) {

@@ -12,18 +12,26 @@ function Projects() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    const controller = new AbortController();
+
     async function fetchRepos() {
       try {
-        const data = await getRepositories();
+        const data = await getRepositories({ signal: controller.signal });
         setRepos(data);
       } catch (err) {
-        setError(err.message || 'Unable to load projects.');
+        if (err.name !== 'AbortError') {
+          setError(err.message || 'Unable to load projects.');
+        }
       } finally {
         setLoading(false);
       }
     }
 
     fetchRepos();
+
+    return () => {
+      controller.abort();
+    };
   }, []);
 
   return (

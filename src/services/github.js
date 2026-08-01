@@ -32,8 +32,9 @@ function isFeaturedRepo(repo) {
   );
 }
 
-export async function getProfile() {
+export async function getProfile({ signal }) {
   const response = await fetch(`${BASE_URL}/${USERNAME}`, {
+    signal,
     headers: githubHeaders,
   });
 
@@ -44,10 +45,11 @@ export async function getProfile() {
   return data;
 }
 
-export async function getRepositories() {
+export async function getRepositories({ signal }) {
   const response = await fetch(
     `${BASE_URL}/${USERNAME}/repos?sort=updated&per_page=100`,
     {
+      signal,
       headers: githubHeaders,
     },
   );

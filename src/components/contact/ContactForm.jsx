@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { FiLoader, FiSend } from 'react-icons/fi';
 
+import { sendContactMessage } from '../../services/formspree';
+
 const SUBJECTS = [
   'Job Opportunity',
   'Freelance Project',
@@ -20,60 +22,32 @@ function ContactForm() {
   async function handleSubmit(e) {
     e.preventDefault();
 
-    const endpoint = import.meta.env.VITE_FORMSPREE_ENDPOINT;
-
-    if (!endpoint) {
-      setStatus({
-        type: 'error',
-        title: 'Contact form unavailable',
-        message:
-          'Please email me directly at krrupesh2000@gmail.com while the form is being configured.',
-      });
-      return;
-    }
-
     setLoading(true);
     setStatus(null);
 
     const form = e.target;
 
-    const formData = new FormData(form);
-
     try {
-      const response = await fetch(endpoint, {
-        method: 'POST',
-        body: formData,
-        headers: {
-          Accept: 'application/json',
-        },
+      await sendContactMessage(form);
+
+      form.reset();
+      setMessage('');
+
+      setStatus({
+        type: 'success',
+        title: 'Message Sent!',
+        message:
+          "Thank you for reaching out. I'll get back to you as soon as possible.",
       });
-
-      if (response.ok) {
-        form.reset();
-        setMessage('');
-
-        setStatus({
-          type: 'success',
-          title: 'Message Sent!',
-          message:
-            "Thank you for reaching out. I'll get back to you as soon as possible.",
-        });
-      } else {
-        setStatus({
-          type: 'error',
-          title: 'Something went wrong',
-          message: "Your message couldn't be sent. Please try again.",
-        });
-      }
-    } catch {
+    } catch (err) {
       setStatus({
         type: 'error',
-        title: 'Network Error',
-        message: 'Unable to connect. Please try again later.',
+        title: 'Message not sent',
+        message: err.message || 'Unable to connect. Please try again later.',
       });
+    } finally {
+      setLoading(false);
     }
-
-    setLoading(false);
   }
 
   return (

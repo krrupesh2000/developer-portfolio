@@ -7,8 +7,8 @@ function SkillGrid() {
       className="
         grid
         grid-cols-[repeat(auto-fit,minmax(min(100%,8.5rem),1fr))]
-        gap-3
-        sm:gap-4
+        gap-4
+        sm:gap-6
         lg:grid-cols-[repeat(auto-fit,minmax(9.5rem,1fr))]
         xl:grid-cols-4
       "

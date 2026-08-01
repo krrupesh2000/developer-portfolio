@@ -1,3 +1,5 @@
+const SCROLL_OFFSET = 48; // Pixels to offset the scroll position to prevent content from touching the navbar
+
 const getNavbarHeight = () => {
   if (typeof window === 'undefined') return 0;
   const navbar = document.querySelector('header');
@@ -11,8 +13,11 @@ export const scrollToSection = (selector) => {
   if (!target) return;
 
   const navbarHeight = getNavbarHeight();
+  const targetStyle = window.getComputedStyle(target);
+  const paddingTop = parseFloat(targetStyle.paddingTop);
+
   const targetTop =
-    target.getBoundingClientRect().top + window.scrollY - navbarHeight;
+    target.getBoundingClientRect().top + window.scrollY - navbarHeight + paddingTop - SCROLL_OFFSET;
 
   const prefersReducedMotion = window.matchMedia(
     '(prefers-reduced-motion: reduce)',

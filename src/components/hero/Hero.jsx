@@ -69,13 +69,13 @@ function Hero() {
 
             {/* Name */}
 
-            <h1 className="type-hero-title mb-4 font-extrabold text-foreground">
+            <h1 className="type-hero-title mb-4 font-extrabold">
               {profile.name}
             </h1>
 
             {/* Role */}
 
-            <h2 className="type-subtitle mb-6 font-semibold text-primary">
+            <h2 className="type-subtitle mb-6 font-semibold">
               Full Stack MERN Developer
             </h2>
 
@@ -91,14 +91,14 @@ function Hero() {
                 aria-hidden="true"
               />
 
-              <span className="type-label font-medium text-foreground">
+              <span className="type-label font-medium">
                 Available for Full-Time Opportunities
               </span>
             </div>
 
             {/* Description */}
 
-            <p className="type-body mb-10 mx-auto max-w-xl text-muted-foreground lg:mx-0 lg:max-w-2xl">
+            <p className="type-body mb-10 mx-auto max-w-xl lg:mx-0 lg:max-w-2xl">
               I build modern, scalable, and user-focused web applications using
               React, Node.js, Express, MongoDB, and modern development
               practices. Passionate about clean architecture, performance,

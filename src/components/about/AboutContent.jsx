@@ -15,14 +15,14 @@ function AboutContent() {
         and great user experiences.
       </h4>
 
-      <p className="type-body mt-4 text-center text-muted-foreground lg:mt-5 lg:text-left">
+      <p className="type-body mt-4 text-center lg:mt-5 lg:text-left">
         I&apos;m a Full Stack Developer passionate about creating responsive,
         user-focused web applications with modern technologies. I enjoy turning
         ideas into intuitive digital experiences while writing clean,
         maintainable, and scalable code.
       </p>
 
-      <p className="type-body mt-3 text-center text-muted-foreground lg:text-left">
+      <p className="type-body mt-3 text-center lg:text-left">
         My current focus is mastering React while building a strong full-stack
         foundation with Node.js, databases, and modern development practices.
         I&apos;m also exploring DevOps and cloud technologies to understand the

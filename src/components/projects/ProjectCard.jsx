@@ -80,11 +80,11 @@ function ProjectCard({ repo }) {
 
       {/* Content */}
       <div className="relative flex flex-1 flex-col p-4 sm:p-5">
-        <h3 className="type-card-title wrap-break-word text-center font-semibold capitalize text-foreground sm:text-center md:text-center lg:text-left">
+        <h3 className="type-card-title wrap-break-word text-center font-semibold capitalize sm:text-center md:text-center lg:text-left">
           {repo.name}
         </h3>
 
-        <p className="type-small mt-2 line-clamp-3 text-center text-muted-foreground sm:text-center md:text-center lg:text-left">
+        <p className="type-small mt-2 line-clamp-3 text-center sm:text-center md:text-center lg:text-left">
           {repo.description || 'No description available.'}
         </p>
 

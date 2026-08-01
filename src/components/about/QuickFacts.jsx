@@ -76,7 +76,7 @@ function QuickFacts() {
             </div>
 
             <div className="min-w-0">
-              <p className="type-label break-words font-semibold text-foreground">
+              <p className="type-label break-words font-semibold">
                 {fact.value}
               </p>
 

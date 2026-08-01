@@ -10,5 +10,6 @@ html {
 }
 
 body {
-  @apply bg-background text-foreground;
+  background-color: var(--slate-950);
+  color: var(--slate-300);
 }

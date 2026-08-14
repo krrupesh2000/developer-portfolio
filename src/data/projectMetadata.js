@@ -3,23 +3,32 @@
 import portfolioImage from '../assets/projects/portfolio-optimized.jpg';
 import NotesImage from '../assets/projects/notes-app-optimized.jpg';
 import ecommerceImage from '../assets/projects/ecommerce-optimized.jpg';
+import DevBoardImage from '../assets/projects/DevBoard.png';
+
+// PROJECT METADATA
 
 const portfolioMetadata = {
   image: portfolioImage,
   homepage: 'https://krrupesh-portfolio-v2.vercel.app/',
-  technologies: ['React', 'Tailwind CSS', 'Vite', 'JavaScript'],
+  technologies: ['React', 'Tailwind CSS', 'JavaScript', 'Motion', 'Vite'],
 };
 
 const ecommerceMetadata = {
   image: ecommerceImage,
   homepage: 'https://krrupesh-ecommerce-v2.vercel.app/',
-  technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'JWT', 'Stripe'],
+  technologies: ['React', 'JWT', 'Razorpay', 'Tailwind CSS'],
 };
 
 const notesMetadata = {
   image: NotesImage,
   homepage: 'https://krrupesh-notes-v2.vercel.app/',
-  technologies: ['React', 'Tailwind CSS', 'Chart.js', 'REST API', 'Firebase'],
+  technologies: ['React', 'Tailwind CSS'],
+};
+
+const devboardMetadata = {
+  image: DevBoardImage,
+  homepage: 'https://dev-board-sooty.vercel.app/',
+  technologies: ['React', 'Tailwind CSS', 'JavaScript', 'Motion', 'Vite'],
 };
 
 const normalizeProjectKey = (value = '') =>
@@ -50,6 +59,10 @@ const projectMetadataEntries = [
     metadata: notesMetadata,
     keys: ['notes', 'notes-app', 'notes-v2', 'krrupesh-notes-v2'],
   },
+  {
+    metadata: devboardMetadata,
+    keys: ['devboard', 'dev-board', 'krrupesh-dev-board'],
+  },
 ];
 
 export function getProjectMetadata(repoName = '') {
@@ -76,4 +89,6 @@ export const projectMetadata = {
   'e-commerce': ecommerceMetadata,
   notes: notesMetadata,
   'notes-app': notesMetadata,
+  'dev-board': devboardMetadata,
+  'dev-board-v2': devboardMetadata,
 };

@@ -8,6 +8,7 @@ import {
   memo,
 } from 'react';
 import { FiMenu } from 'react-icons/fi';
+import logoImage from '../../../public/RK-logo.png';
 import clsx from 'clsx';
 
 import NavLinks from './NavLinks';
@@ -61,9 +62,13 @@ function Navbar() {
           <a
             href="#home"
             onClick={handleLogoClick}
-            className="type-subtitle font-bold"
+            className="rounded-md transition-opacity duration-300 hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
-            RK
+            <img
+              src={logoImage}
+              alt="Rupesh Kumar Logo"
+              className="h-10 w-auto object-contain"
+            />
           </a>
 
           {/* Desktop Navigation */}
